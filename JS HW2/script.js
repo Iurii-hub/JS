@@ -430,7 +430,7 @@ let arrLastNew = [];
 for (let num of arrLast) {
     if (typeof num === "number") {
         let arrLastNew = [num];
-        console.log(num); //  change
+        console.log(num); //  changed
     } 
     
 }
