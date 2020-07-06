@@ -17,6 +17,8 @@ let symb = Symbol;
 
 let arr1 = [10, 2, -34, 0.12, -0.45];
 console.log(arr1);
+arr1[2] = "array99";
+console.log(arr1);
 
 let arr2 = ["red", "white", "green", "blue", "black"];
 console.log(arr2);
@@ -72,6 +74,7 @@ while (p < 20) {
 let arr10 = [10, 2, -34, 0.12, -0.45, 45, 12, 76, 37, 0];
 for (array of arr10) {
     document.write(array, " ");
+    // console.log(array);
 }
 
 document.write("<hr>");
@@ -102,7 +105,7 @@ let arr10some = ["dark", 34, true, false, 55, "pink", "yellow", 12, -0.456, true
 // }
 
 for (let bool of arr10some) {
-    if (typeof bool === 'boolean') {
+    if (typeof bool === "boolean") {
         console.log(bool);
     }   
 }
@@ -234,33 +237,34 @@ for (let hour = 0; hour < 3; hour++) {
 // Додатково
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
 
-let x = "";
 let arrOfSymbols = ["a", "b", "c"];
-for (const symb of arrOfSymbols) {
-    x += symb
+
+let box = "";
+for (let m = 0; m < arrOfSymbols.length; m++) {
+    box += arrOfSymbols[m];
 }
-console.log(x);
+console.log(box);
 
 
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
 
-let l = 0;
-while (arrOfSymbols[l] < 3) {
-    console.log(l);
-    l++;
+let l = "";
+let q = 0;
+while (q < arrOfSymbols.length) {
+    l += arrOfSymbols[q];
+    q++
 }
-// console.log(l); // help____________________________________________________________________________________________
+console.log(l);
 
 
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
 
-for (let num of arrOfSymbols) {
-    if (num < arrOfSymbols.length) {
-        console.log(num);
-    }
-} // help____________________________________________________________________________________________
-
+let x = "";
+for (const symb of arrOfSymbols) {
+    x += symb
+}
+console.log(x);
 
 // =================
 // =================
@@ -321,24 +325,62 @@ console.log(arrSlice.slice(3));
 
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції slice перетворіть масив в [1,2].
 
-console.log(arrSlice.slice(-5, -3));
+console.log(arrSlice.slice(0, 2));
 
 
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice перетворіть масив в [1, 4, 5].
 
-console.log(arrSlice.slice(-3, -2)); // help____________________________________________________________________________________________
+console.log(arrSlice.splice(1, 2)); 
+console.log(arrSlice); 
 
 
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice зробіть з нього масив [1, 2, 3, 'a', 'b', 'c', 4, 5].
+
+let arrSlice1 = [1, 2, 3, 4, 5];
+console.log(arrSlice1.splice(3, 0, "a", "b", "c"));
+console.log(arrSlice1);
+
+
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice зробіть з нього масив [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].
+
+let arrSlice2 = [1, 2, 3, 4, 5];
+arrSlice2.splice(1, 0, "a", "b");
+arrSlice2.splice(6, 0, "c");
+arrSlice2.splice(8, 0, "e");
+console.log(arrSlice2);
+
 // - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
+
+let arr354 = [12, -12, 62, 45, 748, 7, -435, 23, 175, 522];
+
+let z354 = 0;
+while (z354 < arr354.length) {
+    if (arr354[z354] % 2 === 0) {
+        console.log(arr354[z354]);
+    }
+    z354++;
+}
 
 
 // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу та push () скопіювати значення 
 // одного масиву в інший
+
+let arr1010 = [23, 12, 2, 4, 78, 77, -45, 13, 675, 222];
+let arr1010empty = [];
+for (i = 0; i < 10; i++) {
+    arr1010empty.push(arr1010[i]);
+}
+console.log(arr1010empty);
+
+
 // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу скопіювати значення одного 
 // масиву в інший.
 
+let arr1010emptyCopy = [];
+for (i = 0; i < 10; i++) {
+    arr1010emptyCopy[i] = arr1010[i];
+}
+console.log(arr1010emptyCopy);
 
 
 // ============
@@ -349,13 +391,67 @@ let array10 = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18];
 
 // 1. перебрати його циклом while
 
+let z384 = 0;
+while (z384 < array10.length) {
+    console.log(array10[z384]);
+    z384++;
+}
+
 
 // 2. перебрати його циклом for
+
+for (let i = 0; i < array10.length; i++) {
+    console.log(array10[i]);
+}
+
+
 // 3. перебрати циклом while та вивести  числа тільки з непарним індексом
+
+let z401 = 1;
+while (z401 < array10.length) {
+    console.log(array10[z401]);
+    z401 = z401 + 2;
+}
+
+
 // 4. перебрати циклом for та вивести  числа тільки з непарним індексом
-// 5. перебрати циклом while та вивести  числа тільки парні  значення
+
+for (let i = 0; i < array10.length; i++) {
+    if (array10[i] % 2 === 1) {
+        console.log(array10[i]);
+    }
+}
+
+// 5. перебрати циклом while та вивести  числа тільки парні значення
+
+let z418 = 0;
+while (z418 < array10.length) {
+    if (array10[z418] % 2 === 0) {
+        console.log(array10[z418]);
+    }
+    z418++;
+}
+
+
 // 6. перебрати циклом for та вивести  числа тільки парні  значення
+
+for (let i = 0; i < array10.length; i++) {
+    if (array10[i] % 2 === 0) {
+        console.log(array10[i]);
+    }
+}
+
+
 // 7. замінити кожне число кратне 3 на слово "okten"
+
+for (let i = 0; i < array10.length; i++) {
+    if (array10[i] % 3 === 0) {
+        array10.splice(i, 1, "okten");
+    }
+}
+console.log(array10);
+
+
 // 8. вивести масив в зворотньому порядку.
 
 let reverse10 = [];
@@ -366,10 +462,75 @@ console.log(reverse10);
 
 
 // 9. всі попередні завдання (окрім 8), але в зворотньому циклі (с заду на перед)
+
+let array466 = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18];
+
+let z466 = array466.length - 1;
+while (z466 >= 0) {
+    // console.log(z466);
+    console.log(array466[z466]);
+    z466--;
+}
+
+
+for (let i = array466.length - 1; i >= 0; i--) {
+    console.log(array466[i]);
+}
+
+
+let z479 = array466.length - 1;
+while (z479 >= 0) {
+    if (z479 % 2 !== 0) {
+        console.log(z479);
+    }
+    z479--;
+}
+
+
+for (let i = array466.length - 1; i >= 0; i--) {
+    if (i % 2 !== 0) {
+        console.log(i);
+    }
+}
+
+let z496 = array466.length - 1;
+while (z496 >= 0) {
+    if (array466[z496] % 2 === 0) {
+        console.log(array466[z496]);
+    }
+    z496--;
+}
+
+for (let i = array466.length - 1; i >=0; i--) {
+    if (array466[i] % 2 === 0) {
+        console.log(array466[i]);
+    }
+}
+
+
+for (let i = 0; i < array466.length; i++) {
+    if (array466[i] % 3 === 0) {
+        array466.splice(i, 1, "okten");
+    }
+}
+let array466reverse = [];
+for (let i = array466.length - 1; i >= 0; i--) {
+    array466reverse.unshift(array466.shift());
+}
+console.log(array466reverse);
+
+
 // 10
 //  створити пустий масив та :
 // - заповнити його 50 парними числами за допомоги циклу.
+
+let arr527 = [];
+// for ()
+
+
 // - заповнити його 50 непарними числами за допомоги циклу.
+
+
 
 
 // 1
@@ -380,7 +541,15 @@ console.log(reverse10);
 
 
 // 2. заповнити його 50 непарними числами за допомоги циклу.
+
+
+
+
 // 3. используя Math.random заполнить массив из ???(сколько хотите) элементов.
+
+
+
+
 //  диапазон рандома 8 до 732. (но сначала пробуйте БЕЗ ДИАПАЗОНА!)
 
 let arrRandom = [];
@@ -392,9 +561,21 @@ console.log(arrRandom);
 
 
 //  2. вывести на консоль  каждый третий елемент
+
+
+
+
 //  3. вывести на консоль  каждый третий елемент но при условии что его значение является парным.
+
+
+
+
 //  4. вывести на консоль  каждый третий елемент но при условии что он имеет парное значение и
 //  записать их в другой массив.
+
+
+
+
 //  5. Вывести каждый елемент массива у которого соседний с права элемент - парный
 
 let arr101 = [23, 34, 12, 1, 5, 567, 34, 21, 87, 9];
@@ -416,10 +597,20 @@ for (const number of arrAverage) {
 }
 console.log(sum / arrAverage.length);
 
+
 // 3 створити масив з рандомними значеннями, помножити всі його елементи на 5 та перемістити їх в інший масив.
 
-
-
+let arrRandom2 = [];
+let arrRandom21 = []; 
+for (let i = 0; i < 3; i++ ) {
+    let resultRandom2 = Math.round(Math.random() * 100);
+    arrRandom2.push(resultRandom2)
+    
+    arrRandom21.push(resultRandom2 * 5); 
+}
+console.log(arrRandom2);
+console.log(arrRandom21);
+    
 
 // 4 створити масив з будь якими значеннями (стрінги, числа, і тд...). пройтись по ньому, і якщо об'єкт є числом,
 //  додати його в інший масив.
