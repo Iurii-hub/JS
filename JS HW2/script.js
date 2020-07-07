@@ -587,12 +587,10 @@ let arr586 = [];
 
 for (let i = 2; i < arrRandom.length; i = i + 3) {
     if (arrRandom[i] % 2 === 0) {
-        let result586 = arrRandom[i];
-        arr586.push(result586);
+        arr586.push(arrRandom[i]);
     }
 }
 console.log(arr586);
-
 
 
 //  5. Вывести каждый елемент массива у которого соседний с права элемент - парный
