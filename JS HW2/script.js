@@ -525,59 +525,73 @@ console.log(array466reverse);
 // - заповнити його 50 парними числами за допомоги циклу.
 
 let arr527 = [];
-// let arr10 = [];
-//заповнити його 50 парними числами за допомоги циклу.
-//for (i = 2; arr10.length<50; i +=2){
-//  arr10.push(i);
-//}
-//console.log(arr10);
+for (i = 2; arr527.length < 50; i+=2) {
+    arr527.push(i);
+}
+console.log(arr527);
 
 
 // - заповнити його 50 непарними числами за допомоги циклу.
 
-
+let arr536 = [];
+for (i = 1; arr536.length < 50; i+=2) {
+    arr536.push(i);
+}
+console.log(arr536);
 
 
 // 1
 //  створити пустий масив та :
 // 1. заповнити його 50 парними числами за допомоги циклу.
-
-
-
-
 // 2. заповнити його 50 непарними числами за допомоги циклу.
-
-
-
-
 // 3. используя Math.random заполнить массив из ???(сколько хотите) элементов.
 
-
+let arr549 = [];
+for (let i = 0; i < 5; i++) {
+    let result549 = Math.random();
+    arr549.push(result549);
+}
+console.log(arr549);
 
 
 //  диапазон рандома 8 до 732. (но сначала пробуйте БЕЗ ДИАПАЗОНА!)
 
 let arrRandom = [];
 for (let i = 0; i < 20; i++) {
-    let resultRandom = (Math.random() * (732 - 8) + 8);
-    arrRandom.push(resultRandom)
+    let resultRandom = Math.round(Math.random() * (732 - 8) + 8);
+    arrRandom.push(resultRandom);  
 }
 console.log(arrRandom);
 
 
 //  2. вывести на консоль  каждый третий елемент
 
-
+for (let i = 2; i < arrRandom.length; i = i + 3) {
+     console.log(arrRandom[i]);
+}
 
 
 //  3. вывести на консоль  каждый третий елемент но при условии что его значение является парным.
 
-
+for (let i = 2; i < arrRandom.length; i = i + 3) {
+    if (arrRandom[i] % 2 === 0) {
+        console.log(arrRandom[i]);
+    }
+}
 
 
 //  4. вывести на консоль  каждый третий елемент но при условии что он имеет парное значение и
 //  записать их в другой массив.
 
+let arr586 = [];
+
+for (let i = 2; i < arrRandom.length; i = i + 3) {
+    if (arrRandom[i] % 2 === 0) {
+        let result586 = arrRandom[i];
+        arr586.push(result586);
+    }
+}
+console.log(arr586);
 
 
 
@@ -587,7 +601,6 @@ let arr101 = [23, 34, 12, 1, 5, 567, 34, 21, 87, 9];
 for (let i = 0; i < arr101.length; i++) {
     if (arr101[i + 1] % 2 === 0) {
         console.log(arr101[i]);
-
     }
 }
 
