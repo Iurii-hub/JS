@@ -59,9 +59,9 @@ console.log(car041);
 
 let house060 = {adress: ["Petlury", 21, 44], floor: 2, area: "98 sq.m", room: 5, balcony: true};
 let driver061 = {name: "Toni", age: "53", status: false, skill: ["car", "bus", "truck"], license: true};
-let toy062 = {name: "T-rex"; type: "animal"; color: "green", price: "5$", ability: ["move", "sound"]};
+let toy062 = {name: "T-rex", type: "animal", color: "green", price: "5$", ability: ["move", "sound"]};
 let table063 = {type: "office", material: ["steel", "plywood"], color: "silver", weight: "27kg", price: "43$"};
-let bag064 = {type: "travel"; material: ["cotton", "rubber"], color: "black", weight: "3kg", price: "26$"};
+let bag064 = {type: "travel", material: ["cotton", "rubber"], color: "black", weight: "3kg", price: "26$"};
 
 
 
