@@ -273,13 +273,19 @@ console.log(x);
 
 // - Дан масив ['a', 'b', 'c']. Додайте йому в кінець елементи 1, 2, 3 за допомогою циклу.
 
-let ii = ["a", "b", "c"];
-ii[3] = "1";
-ii[4] = "2";
-ii[5] = "3";
-for (i = 0; i < 1; i++) {
-    console.log(ii);
+// let ii = ["a", "b", "c"];
+// ii[3] = "1";
+// ii[4] = "2";
+// ii[5] = "3";
+// for (i = 0; i < 1; i++) {
+//     console.log(ii);
+// }
+
+let arr284 = ["a", "b", "c"];
+for (let i = 1; i < 4; i++) {
+    arr284.push(i);
 }
+console.log(arr284);
 
 
 // - Дан масив [1, 2, 3]. Зробіть з нього новий масив [3, 2, 1].
@@ -320,7 +326,10 @@ console.log(arrJs.pop());
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції slice перетворіть масив в [4, 5].
 
 let arrSlice = [1, 2, 3, 4, 5];
-console.log(arrSlice.slice(3));
+// console.log(arrSlice.slice(3));
+
+let arrSlice331 = arrSlice.slice(3);
+console.log(arrSlice331);
 
 
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції slice перетворіть масив в [1,2].
@@ -595,8 +604,8 @@ console.log(arr586);
 
 //  5. Вывести каждый елемент массива у которого соседний с права элемент - парный
 
-let arr101 = [23, 34, 12, 1, 5, 567, 34, 21, 87, 9];
-for (let i = 0; i < arr101.length; i++) {
+let arr101 = [23, 34, 12, 1, 5, 567, 34, 21, 88, 9];
+for (let i = 0; i < arr101.length -1; i++) {
     if (arr101[i + 1] % 2 === 0) {
         console.log(arr101[i]);
     }
