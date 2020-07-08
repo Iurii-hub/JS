@@ -81,10 +81,36 @@ let users = [
 			];
 // - звернутися в відповідну ячейку масиву і відповідний параметр об'єкта і вивести в консольх наступне
 // - статус Андрія
+
+console.log(users[7].status);
+
+
 // - статус Максима
+
+console.log(users[4].status);
+console.log(users[10].status);
+
+
 // - ім'я передостаннього об'єкту
+
+for (let i = 0; i < users.length; i++) {
+    if (i === users.length - 2) {
+        console.log(users[i].name);
+    }
+}
+
+
 // - ім'я третього об'єкта
+
+console.log(users[2].name);
+
+
 // - вік Олега
+
+
+
+// console.log(users[6].age);
+
 // - вік Олі
 // - вік + ім'я 5го об'єкта
 // - вік + сатус Анни
