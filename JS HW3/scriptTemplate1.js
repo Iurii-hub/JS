@@ -1,14 +1,34 @@
-console.log("test");
-
 
 // -Візьміть файл template1.html, підключіть до нього скрипт, і працюйте в ньому.
 
+console.log("test");
+
+
 // -- Напишіть код,  який за допомоги document.getElementById або document.getElementsByClassName або document.getElementsByTagName :
 // - отримує текст з параграфа з id "content"
+
+let text010 = document.getElementById("content");
+console.log(text010);
+
+
 // - отримує текст з блоку з id "rules"
+
+let text016 = document.getElementById("rules");
+console.log(text016);
+
+
 // - замініть текст параграфа з id 'content' на будь-який інший
+
+text010.innerText = "Оформлення проїзду на поїзди до Луганської та Донецької областей за 45 діб. Відтепер квитки на поїзди, що";
+
 // - замініть текст параграфа з id 'rules' на будь-який інший
+
+text016.innerText = "Укроборонпром офіційно призначив нового президента ДП Антонов (Економічна правда)";
+
+
 // - змініть кожному елементу колір фону на червоний
+
+
 // - змініть кожному елементу колір тексту на синій
 // - отримати весь список класів елемента з id=rules і вивести їх в console.log
 // - отримати всі елементи з класом fc_rules
