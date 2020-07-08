@@ -107,13 +107,25 @@ console.log(users[2].name);
 
 // - вік Олега
 
+console.log(users[6].age);
 
-
-// console.log(users[6].age);
 
 // - вік Олі
+
+console.log(users[3].age);
+console.log(users[9].age);
+
+
 // - вік + ім'я 5го об'єкта
+
+console.log(users[4].name, users[4].age);
+
+
 // - вік + сатус Анни
+
+console.log(users[5].age, users[5].status);
+
+
 // Приклад: вивести ім'я 1го об'єкта. Відповідь: console.log (users [0] .name). Будьте уважні! 4й об'єкт має індес 3!
 
 // -Візьміть файл template1.html, підключіть до нього скрипт, і працюйте в ньому.
