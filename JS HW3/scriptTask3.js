@@ -18,17 +18,29 @@ let toy ={type: "babyborn", condition: "new", design: ["modern", "friendly"], co
 
 // - При помощи for in вывести все ключи всех объектов из задания 1 и 2
 
-for (const obj021 in object1) {
-    console.log(obj021,object1[obj021]);
+// for (const obj021 in object1) {
+//     console.log(obj021,object1[obj021]);
+// }
+for (const keys in object1) {
+    console.log(keys);   
 }
 
-for (const obj024 in object2) {
-    console.log(obj024,object2[obj024]);  
+for (const keys in object2) {
+    console.log(keys); 
 }
 
-for (const obj029 in object3) {
-    console.log(obj029,object2[obj029]);  
+for (const keys in object3) {
+    console.log(keys);
 }
+
+for (const keys in object4) {
+    console.log(keys);
+}
+
+for (const keys in object5) {
+    console.log(keys);
+}
+
 
 // - При помощи Object.keys вывести все ключи всех объектов из задания 1 и 2
 // - Создать массив из 10 объектов cars и заполнить его машинами с полями модель, год выпуска, мощность, цвет. (Значаения полей могу быть выдуманными)
