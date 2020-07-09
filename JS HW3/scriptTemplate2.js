@@ -69,7 +69,7 @@ for (const i of a047) {
 // -- отримує всі елементи 'sub-header' та змінює колір фону. Фон отримати з prompt()
 
 let element071 = document.getElementsByClassName("sub-header");
-let color072 = prompt("type color");
+let color072 = prompt("type background color");
 for (let i of element071) {
     i.style.backgroundColor = color072;
 }
@@ -77,22 +77,39 @@ for (let i of element071) {
 
 // -- отримує всі елементи 'sub-header' та змінює колір тексту у видаку якщо текст елемнту = content 2 segment . Колір отримати з prompt()
 
-
+let color080 = prompt("type text color");
+for (let i of element071) {
+    if (i.textContent === "content 2 segment") {
+        i.style.color = color080;
+    }
+}
 
 
 // -- отримує елемент з класом content_1 та заміняє  в ньому тест на довільний. Текст отримати з prompt()
 
-
+let element090 = document.getElementsByClassName("content_1");
+let text091 = prompt("type any text");
+for (let i of element090) {
+    i.innerText = text091;
+}
 
 
 // -- отримати елементи p та змінити їм paddin на довільне значення
 
-
+let p099 = document.getElementsByTagName("p");
+for (let i of p099) {
+    i.style.padding = "100px";
+}
 
 
 // -- отримати елементи з класом text2 та змінити їм текст на довільне значення
 
-
+let element107 = document.getElementsByClassName("text2");
+for (let i of element107) {
+    i.innerText = "new text, new text, new text, new text, new text, new text, new text, new text, new text, new text, new text, new text";
+    i.style.fontSize = "40px"; // additional
+    i.style.color = "orange"; // additional
+}
 
 
 // © 2020 GitHub, Inc
