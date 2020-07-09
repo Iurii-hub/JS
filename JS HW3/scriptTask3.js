@@ -1,6 +1,35 @@
 // - создать 5 объектов. В каждом объекте не менее 3х полей. Все объекты разные по набору полей. (Т.е поле name  должно присутствовать только 1 раз в одном объекте )
-// - создать 5 объектов с полностью разным набором полей. В каждом объекте должен присутсвовать массив и внутренний объект. Опишите что угодно, машину, картину, болт... Пример : let man = { name: 'kokos', skills : ['java','js'] , wife: { name: 'cherry' } };
+
+let object1 = {name: "aaa1", surname: "bbb1", age: 11};
+let object2 = {model: "aaa2", color: "bbb2", price: "22$"};
+let object3 = {manufacturer: "aaa3", brand: "bbb3", logo: "33"};
+let object4 = {city: "aaa4", street: "bbb4", house: 44};
+let object5 = {bank: "aaa5", id: "bbb5", account: 55};
+
+// - создать 5 объектов с полностью разным набором полей. В каждом объекте должен присутсвовать массив и внутренний объект. Опишите что угодно, машину, картину, болт... 
+// Пример : let man = { name: 'kokos', skills : ['java','js'] , wife: { name: 'cherry' } };
+
+let car ={general: {manuafacturer: "honda motor", brand: "honda"}, model: "civic", spec: ["4doors", "FWD"]};
+let paint ={painter: {name: "gustav", surname: "floyd"}, details: ["a", "b"], size: "120 x 60cm"};
+let furniture ={year: 1999, material: ["wood", "plastic"], details: {color: "brown", legs: false}};
+let house ={adress: ["resp", "12"], status: true, room: {room1: "23sq.m", room2: "12sq.m"}};
+let toy ={type: "babyborn", condition: "new", design: ["modern", "friendly"], color: {top: "pink", bottom: "white"}};
+
+
 // - При помощи for in вывести все ключи всех объектов из задания 1 и 2
+
+for (const obj021 in object1) {
+    console.log(obj021,object1[obj021]);
+}
+
+for (const obj024 in object2) {
+    console.log(obj024,object2[obj024]);  
+}
+
+for (const obj029 in object3) {
+    console.log(obj029,object2[obj029]);  
+}
+
 // - При помощи Object.keys вывести все ключи всех объектов из задания 1 и 2
 // - Создать массив из 10 объектов cars и заполнить его машинами с полями модель, год выпуска, мощность, цвет. (Значаения полей могу быть выдуманными)
 // - Создать массив объектов cities и заполнить его объектами с полями название, популяция, страна, регион. (Значаения полей могу быть выдуманными)
