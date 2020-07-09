@@ -41,10 +41,63 @@ for (const keys in object5) {
     console.log(keys);
 }
 
+for (const keys in car) {
+    console.log(keys);
+}
+
+for (const keys in paint) {
+    console.log(keys);
+}
+
+for (const keys in furniture) {
+    console.log(keys);
+}
+
+for (const keys in house) {
+    console.log(keys);
+}
+
+for (const keys in toy) {
+    console.log(keys);
+}
+
 
 // - При помощи Object.keys вывести все ключи всех объектов из задания 1 и 2
+
+console.log(Object.keys(object1));
+console.log(Object.keys(object2));
+console.log(Object.keys(object3));
+console.log(Object.keys(object4));
+console.log(Object.keys(object5));
+
+console.log(Object.keys(car));
+console.log(Object.keys(paint));
+console.log(Object.keys(furniture));
+console.log(Object.keys(house));
+console.log(Object.keys(toy));
+
+
 // - Создать массив из 10 объектов cars и заполнить его машинами с полями модель, год выпуска, мощность, цвет. (Значаения полей могу быть выдуманными)
+
+let arrCars082 = [
+    {model: "honda", year: 1994, hp: 99, color: "blue"},
+    {model: "mazda", year: 1999, hp: 122, color: "pink"},
+    {model: "toyota", year: 2001, hp: 87, color: "black"},
+    {model: "bmw", year: 2020, hp: 224, color: "grey"},
+    {model: "porsche", year: 2016, hp: 321, color: "green"},
+    {model: "mercedes", year: 1988, hp: 178, color: "orange"},
+    {model: "volvo", year: 2010, hp: 235, color: "yellow"},
+    {model: "opel", year: 2008, hp: 222, color: "white"},
+    {model: "ford", year: 2020, hp: 398, color: "red"},
+    {model: "suzuki", year: 1991, hp: 177, color: "silver"}
+];
+
+
 // - Создать массив объектов cities и заполнить его объектами с полями название, популяция, страна, регион. (Значаения полей могу быть выдуманными)
+
+
+
+
 // - Создать массив объектов cars и заполнить его машинами с полями модель, год выпуска, мощность, цвет, водитель. Водитель является отдельным объектом с полями имя, возраст, пол, стаж.
 // - проитерировать каждый массив из задания 5,6,7 при помощи while.
 // - проитерировать каждый массив из задания 5,6,7 при помощи for .
