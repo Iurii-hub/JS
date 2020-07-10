@@ -95,14 +95,86 @@ let arrCars082 = [
 
 // - Создать массив объектов cities и заполнить его объектами с полями название, популяция, страна, регион. (Значаения полей могу быть выдуманными)
 
-
+let arrCities098=[];
+for (let i = 0; i < 10; i++) {
+    arrCities098[i] = {name:"city name", population: "xxx_000", country:"country name", region: "country region"};
+    console.log(arrCities098[i]);
+}
 
 
 // - Создать массив объектов cars и заполнить его машинами с полями модель, год выпуска, мощность, цвет, водитель. Водитель является отдельным объектом с полями имя, возраст, пол, стаж.
+
+let arrCars107 = [];
+for (let i = 0; i < 10; i++) {
+    arrCars107[i] = {model: "name", year: "year", hp: "xxx", color: "color", driver: {name: "drivers name", age: "drivers age", sex: "xxx", experience: "xx"}};
+    console.log(arrCars107[i]);
+}
+
+
 // - проитерировать каждый массив из задания 5,6,7 при помощи while.
-// - проитерировать каждый массив из задания 5,6,7 при помощи for .
+
+let cars082 = 0;
+while (cars082 < arrCars082.length) {
+    console.log(arrCars082[cars082]);
+    cars082++
+}
+
+let cities098 = 0;
+while (cities098 < arrCities098.length) {
+    console.log(arrCities098[cities098]);
+    cities098++
+}
+
+let cars107 = 0;
+while (cars107 < arrCars107.length) {
+    console.log(arrCars107[cars107]);
+    cars107++
+}
+
+// - проитерировать каждый массив из задания 5,6,7 при помощи for.
+
+for (let cars0821 = 0; cars0821 < arrCars082.length; cars0821++) {
+    console.log(arrCars082[cars0821]);
+}
+
+for (let cities0981 = 0; cities0981 < arrCities098.length; cities0981++) {
+    console.log(arrCities098[cities0981]);
+}
+
+for (let cars1071 = 0; cars1071 < arrCars107.length; cars1071++) {
+    console.log(arrCars107[cars1071]);
+}
+
+
 // - проитерировать каждый массив из задания 5,6,7 при помощи  for of.
+
+for (let cars0822 of arrCars082) {
+    console.log(cars0822);
+}
+
+for (let cities0982 of arrCities098) {
+    console.log(cities0982);
+}
+
+for (let cars1072 of arrCars107) {
+    console.log(cars1072);
+}
+
+
 // - взять объекты из задания 1 и превратить каждый в json.
+
+let str166 = JSON.stringify(object1);
+console.log(str166);
+let str168 = JSON.stringify(object2);
+console.log(str168);
+let str170 = JSON.stringify(object3);
+console.log(str170);
+let str172 = JSON.stringify(object4);
+console.log(str172);
+let str174 = JSON.stringify(object5);
+console.log(str174);
+
+
 // - взять json из задания 11 и превратить их обратно в объекты.
 // - взять массив из задания 5,в цикле перебрать его объекты превратив их в json .
 // - взять массив из задания 6,в цикле перебрать его объекты превратив их в json .
