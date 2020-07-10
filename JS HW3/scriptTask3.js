@@ -232,17 +232,17 @@ for (let users228 of users) {
 }
 
 // - Создать массив пользователей. У каждого пользователя обязательно должено быть поле skills которое является массивом. 
-// Проитерировать массив пользователей и в каждом пользователе проитерировать его массив skills. Скопировать все skills всех пользователей в отедльный массив
+// Проитерировать массив пользователей и в каждом пользователе проитерировать его массив skills. 
+// Скопировать все skills всех пользователей в отедльный массив
 
-let usersNew =[];
-for (let users238 of users) {
-    // console.log(users238);
-    for (let i = 0; i < users238.skills.length; i++) {
+const usersNew =[];
+for (let i = 0; i < users.length; i++) {
+    for (let j = 0; j < users[i].skills.length; j++) {
         // console.log(users238.skills[i]);
-        usersNew.push(users238.skills[i]);
-        console.log(usersNew[i]); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        usersNew.push(users[i].skills[j]);
     }
 } 
+console.log(usersNew);
 
 
 // - За допомогою 2х циклів циклів проітеррувати  даний масив і масив кожного об'єкта.
@@ -322,31 +322,87 @@ let users3 = [{
     address: {city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45}
 }];
 
+// let users3address = [];
+// for (let i = 0; i < users3.length; i++) {
+//     for (let j = 0; j < users3[i].address.length; j++) {
+//     //     users3address.push(users3[i].address[j]);
+//     users3address.push(adress[j]);
+//     }
+    
+// }
+// console.log(users3address); /////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
+// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement. 
+// Всі данні в одному блоці.
 
-// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement. Всі данні в одному блоці.
-
-
-
-
-// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам (div>div*4)
-
-for (let i = 0; i < users3.length; i++) {
-    let div3 = document.createElement("div");
-
-
-    document.body.appendChild(div3);
+let divUsers3 = document.createElement("div");
+document.body.append(divUsers3);
+for (let i of users3) {
+    let divElement = document.createElement("div");
+    divElement.innerText = JSON.stringify(i);
+    divUsers3.appendChild(divElement);
 }
 
 
-// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам , 
-// блок з адресою зробити окремим блоком, з блоками для кожної властивості
+// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, 
+// розділивши всі властивості по своїм блокам (div>div*4)
 
-   
+let divUsers31=document.createElement("div");
+document.body.append(divUsers31);
+for(let i of users3)
+{
+    let divElementUser=document.createElement("div");
+    let divName=document.createElement("div");
+    let divAge=document.createElement("div");
+    let divStatus=document.createElement("div");
+    let divAddress=document.createElement("div");
+    divName.innerHTML=`<p>${JSON.stringify(i.name)}</p>`;
+    divAge.innerHTML=`<p>${JSON.stringify(i.age)}</p>`;
+    divStatus.innerHTML=`<p>${JSON.stringify(i.status)}</p>`;
+    divAddress.innerHTML=`<p>${JSON.stringify(i.address)}</p>`;
+
+    divElementUser.appendChild(divName);
+    divElementUser.appendChild(divAge);
+    divElementUser.appendChild(divStatus);
+    divElementUser.appendChild(divAddress);
+
+    divUsers31.appendChild(divElementUser);
+}
 
 
+// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, 
+// розділивши всі властивості по своїм блокам , блок з адресою зробити окремим блоком, з блоками для кожної властивості
+
+let divUsers32 = document.createElement("div");
+document.body.append(divUsers32);
+for( let i of users3)
+{
+    let divElementUser = document.createElement("div");
+    let divName = document.createElement("div");
+    let divAge = document.createElement("div");
+    let divStatus = document.createElement("div");
+    let divAddress = document.createElement("div");
+
+    divName.innerHTML = `<h1>${i.name}</h1>`;
+    divAge.innerHTML = `<p>${i.age}</p>`;
+    divStatus.innerHTML = `<p>${i.status}</p>`;
+
+    for(let keysAddress in i.address) {
+       let pAddress=document.createElement('p');
+       pAddress.innerText = keysAddress +': ' +i.address[keysAddress];
+
+       divAddress.appendChild(pAddress);
+    }
+
+    divElementUser.appendChild(divName);
+    divElementUser.appendChild(divAge);
+    divElementUser.appendChild(divStatus);
+    divElementUser.appendChild(divAddress);
+    
+    divUsers32.appendChild(divElementUser);
+}
 
 
 // - Дано 2 масиви з рівною кількістю об'єктів.
@@ -358,7 +414,8 @@ for (let i = 0; i < users3.length; i++) {
                 {id: 4, name: 'olya', age: 28, status: false},
             ];
 
-            let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'},
+            let citiesWithId = [
+            {user_id: 3, country: 'USA', city: 'Portland'},
             {user_id: 1, country: 'Ukraine', city: 'Ternopil'},
             {user_id: 2, country: 'Poland', city: 'Krakow'},
             {user_id: 4, country: 'USA', city: 'Miami'},
@@ -366,20 +423,28 @@ for (let i = 0; i < users3.length; i++) {
 
 // З'єднати в один об'єкт користувача та місто з відповідними "id" та "user_id" .
 
-
+for (let i = 0; i < usersWithId.length; i++) {
+    for (let j = 0; j < citiesWithId.length; j++) {
+        if (usersWithId[i].id === citiesWithId[j].user_id) {
+          usersWithId[i].address = citiesWithId[j]
+        }
+      }
+    }
+console.log(usersWithId);
 
 
 // Записати цей об'єкт в новий масив
 
-
-
-
-// Частковий приклад реультату:
-// let usersWithCities = [{id: 1, name: 'vasya', age: 31, status: false, address: {user_id: 1, country: 'Ukraine', city: 'Ternopil'}}....]
-
+const newUsersWithId = [];
+newUsersWithId.push(usersWithId);
+console.log(newUsersWithId);  // Частковий приклад реультату: // let usersWithCities = [{id: 1, name: 'vasya', age: 31, status: false, address: {user_id: 1, country: 'Ukraine', city: 'Ternopil'}}....]
 
 
 // - створити розмітці блок з id, class та текстом в середені. Зчитати окремо цей текст з селекторів по id , class та тегу
+
+
+
+
 // - змінити цей текст використовуючи селектори id, class,  tag
 // - змінити висоту та ширину блоку використовуючи селектори id, class,  tag
 // - за допомоги document.createElement та appendChild створити таблицю на 1 рядок з трьома ячейками всередені
