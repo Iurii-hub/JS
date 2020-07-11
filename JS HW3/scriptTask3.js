@@ -484,8 +484,6 @@ textTag[textTag.length - 1].style.backgroundColor = "lightgreen";
 
 // - за допомоги document.createElement та appendChild створити таблицю на 1 рядок з трьома ячейками всередені
 
-
-
 let elem = document.querySelector(`#elem`);
 
 createTable(elem, 1, 3);
@@ -508,17 +506,17 @@ function createTable(parent, cols, rows) {
 
 // - за допомоги document.createElement, appendChild та циклу створити таблицю на 10 рядків з трьома ячейками всередені
 
-let elem = document.querySelector(`#elem2`);
+let elem2 = document.querySelector(`#elem2`);
 
-createTable2(elem, 10, 3);
+createTable2(elem2, 10, 3);
 function createTable2(parent, cols, rows) {
-    let table = document.createElement2("table");
+    let table = document.createElement("table");
 
     for (let i = 0; i < rows; i++) {
-        let tr = document.createElement2("tr");
+        let tr = document.createElement("tr");
 
         for (let j = 0; j < cols; j++) {
-            let td = document.createElement2("td");
+            let td = document.createElement("td");
             tr.appendChild(td);
         }
         table.appendChild(tr);
@@ -529,17 +527,17 @@ function createTable2(parent, cols, rows) {
 
 // - за допомоги document.createElement, appendChild та 2х циклів створити таблицю на 10 рядків з 5 ячейками всередені
 
-let elem = document.querySelector(`#elem3`);
+let elem3 = document.querySelector(`#elem3`);
 
-createTable3(elem, 10, 5);
+createTable3(elem3, 10, 5);
 function createTable3(parent, cols, rows) {
-    let table = document.createElement2("table");
+    let table = document.createElement("table");
 
     for (let i = 0; i < rows; i++) {
-        let tr = document.createElement3("tr");
+        let tr = document.createElement("tr");
 
         for (let j = 0; j < cols; j++) {
-            let td = document.createElement3("td");
+            let td = document.createElement("td");
             tr.appendChild(td);
         }
         table.appendChild(tr);
@@ -549,90 +547,24 @@ function createTable3(parent, cols, rows) {
 
 
 // - за допомоги document.createElement, appendChild та 2х циклів створити таблицю на n рядків з m ячейками всередені. n та m отримати з prompt
+
 let n=+prompt('Enter number of rows');
 let m=+prompt("Enter number of columns");
 
-let elem = document.querySelector(`#elem4`);
+let elem4 = document.querySelector(`#elem4`);
 
-createTable4(elem, n, m);
+createTable4(elem4, n, m);
 function createTable4(parent, cols, rows) {
-    let table = document.createElement2("table");
+    let table = document.createElement("table");
 
     for (let i = 0; i < rows; i++) {
-        let tr = document.createElement4("tr");
+        let tr = document.createElement("tr");
 
         for (let j = 0; j < cols; j++) {
-            let td = document.createElement4("td");
+            let td = document.createElement("td");
             tr.appendChild(td);
         }
         table.appendChild(tr);
     }
     parent.appendChild(table);
 }
-
-
-// --Завантажити з мережі будь-який шаблон сайту. Підключити до нього свій скріпт-файл. У файлі прописати наступні доступи та дії
-//  - знайти всі елементі, які мають class
-//  - знайти всі параграфи ,та змінити текст на hello oktenweb!
-//  - знайти всі div та змінити ім колір на червоний
-
-// ============
-// ====class===
-// ============
-
-// - є сторінка rules.html. Контентом сторінки є заголовки та параграфи. Заголовки (h2) характеризують тему контенту яка вказана в параграфі.
-// створити скрипт, котрий зчитує всі заголовки, та робить в блоці з id=content з них список(ul>li), який буде змістом того, що знаходиться на сторінці.
-// Скріпт повинен працювати навіть якщо кількість блоків з заголовком та параграфом зміниться.
-
-// -Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
-// При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
-// Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
-
-// 			let rules = [
-// 				{
-// 					title: 'Первое правило Бойцовского клуба.',
-// 					body: 'Никому не рассказывать о Бойцовском клубе.'
-// 				},
-// 				{
-// 					title: 'Второе правило Бойцовского клуба.',
-// 					body: 'Никогда никому не рассказывать о Бойцовском клубе.'
-// 				},
-// 				{
-// 					title: 'Третье правило Бойцовского клуба.',
-// 					body: 'В схватке участвуют только двое.'
-// 				},
-// 				{
-// 					title: 'Четвертое правило Бойцовского клуба.',
-// 					body: 'Не более одного поединка за один раз.'
-// 				},
-// 				{
-// 					title: 'Пятое правило Бойцовского клуба.',
-// 					body: 'Бойцы сражаются без обуви и голые по пояс.'
-// 				},
-// 				{
-// 					title: 'Шестое правило Бойцовского клуба.',
-// 					body: 'Поединок продолжается столько, сколько потребуется.'
-// 				},
-// 				{
-// 					title: 'Седьмое правило Бойцовского клуба.',
-// 					body: 'Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок окончен.'
-// 				},
-// 				{
-// 					title: 'Восьмое и последнее правило Бойцовского клуба.',
-// 					body: 'Новичок обязан принять бой.'
-// 				},
-
-// 			];
-
-
-
-
-// // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі users. За допомогою document.createElement вивести їх в браузер. 
-// Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт в свій блок (блок в блоці).
-// // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі posts. За допомогою document.createElement вивести їх в браузер. 
-// Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).
-// // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі comments. За допомогою document.createElement вивести їх в браузер. 
-// Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).
-// // ****** при помощи fetch (как в примере) получить от jsonplaceholder все posts. Внутри последнего then() сделать еще один fetch который 
-// сделает запрос и получит все comments. Объеденить соответсвующий post с соответсвующими comment и вывести в браузер. 
-// Подсказка : в каждом comment есть поле postId которое определяет какой комментарий принадлежит какому посту
