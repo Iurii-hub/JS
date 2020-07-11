@@ -1,7 +1,5 @@
 // - створити функцію яка виводить масив
 
-
-
 let logArray=arr=>{for(let elements of arr){
     console.log(elements);}}
 
@@ -9,6 +7,30 @@ let logArray=arr=>{for(let elements of arr){
 // - створити функцію яка приймає три числа та виводить та повертає найменьше.
 // - створити функцію яка приймає три числа та виводить та повертає найбільше.
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше
+
+function minimatorMaximator() {
+  let min = arguments[0];
+  let max = arguments[0];
+
+  for (let i = 1; i < arguments.length; i++) {
+    if (arguments[i] < min) {
+      min = arguments[i]
+    }
+
+    if (arguments[i] > max) {
+      max = arguments[i]
+    }
+  }
+
+  console.log(max + ' MAX')
+  return min;
+}
+
+let nim = minimatorMaximator(2, 9, 6, -532, 4, 10, 16, 8, 0, -90, 7, 88, 534, 78);
+
+console.log(nim);
+
+
 // - створити функцію яка виводить масив
 // - створити функцію яка повертає найбільше число з масиву
 // - створити функцію яка повертає найменьше число з масиву
@@ -16,19 +38,46 @@ let logArray=arr=>{for(let elements of arr){
 // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
 // - Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
 // - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
+
+
+
+
 // - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
 //   Приклад
 //   [1,2,3,4]
 //   [2,3,4,5]
 //   результат
 //   [3,5,7,9]
+
+function arraySumator(arr1, arr2) {
+  const resultArr = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    const sumOfElems = arr1[i] + arr2[i];
+
+    resultArr.push(sumOfElems)
+  }
+
+  return resultArr;
+}
+
+let someArr = arraySumator([1, 2, 3, 4], [2, 3, 4, 5]);
+
+console.log(someArr);
+
+
 // - *** приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
 
-//function changeobj (arr, i){
-//	arr[i] = arr[i+1];
-//	return arr;
-//}
+function itemChanger(array, i) {
+  const buffer = array[i];
 
+  array[i] = array[i + 1]
+  array[i + 1] = buffer;
+
+  console.log(array);
+}
+
+itemChanger([1, 2, 3, 4, 9, 62, 3, 4, 5], 4)
 
 
 // - *** створити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
