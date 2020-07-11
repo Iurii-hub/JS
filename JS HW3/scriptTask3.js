@@ -385,7 +385,7 @@ for( let i of users3)
     let divStatus = document.createElement("div");
     let divAddress = document.createElement("div");
 
-    divName.innerHTML = `<h1>${i.name}</h1>`;
+    divName.innerHTML = `<h3>${i.name}</h3>`;
     divAge.innerHTML = `<p>${i.age}</p>`;
     divStatus.innerHTML = `<p>${i.status}</p>`;
 
@@ -442,15 +442,134 @@ console.log(newUsersWithId);  // Частковий приклад реульт�
 
 // - створити розмітці блок з id, class та текстом в середені. Зчитати окремо цей текст з селекторів по id , class та тегу
 
+let newDiv = document.createElement("div");
+newDiv.id = "new division";
+newDiv.classList.add("new");
+newDiv.innerText = "new text";
+document.body.append(newDiv);
 
+let textId = document.getElementById("new division");
+console.log(textId.textContent);
+
+let textClass = document.getElementsByClassName("new");
+for (let text455 of textClass) {
+    console.log(text455.textContent);
+}
+
+let textTag = document.getElementsByTagName("div");
+console.log(textTag[textTag.length - 1].textContent);
 
 
 // - змінити цей текст використовуючи селектори id, class,  tag
+
+textId.innerText = "changed text";
+
+for (let text455 of textClass) {
+    text455.textContent = " changed text";
+}
+
+textTag[textTag.length - 1].textContent = "changed text";
+
+
 // - змінити висоту та ширину блоку використовуючи селектори id, class,  tag
+
+textId.style.height = "200px";
+
+for (let text455 of textClass) {
+    text455.style.width = "300px";
+}
+
+textTag[textTag.length - 1].style.backgroundColor = "lightgreen";
+
+
 // - за допомоги document.createElement та appendChild створити таблицю на 1 рядок з трьома ячейками всередені
+
+
+
+let elem = document.querySelector(`#elem`);
+
+createTable(elem, 1, 3);
+
+function createTable(parent, cols, rows) {
+    let table = document.createElement("table");
+
+    for (let i = 0; i < rows; i++) {
+        let tr = document.createElement("tr");
+
+        for (let j = 0; j < cols; j++) {
+            let td = document.createElement("td");
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+    parent.appendChild(table);
+}
+
+
 // - за допомоги document.createElement, appendChild та циклу створити таблицю на 10 рядків з трьома ячейками всередені
+
+let elem = document.querySelector(`#elem2`);
+
+createTable2(elem, 10, 3);
+function createTable2(parent, cols, rows) {
+    let table = document.createElement2("table");
+
+    for (let i = 0; i < rows; i++) {
+        let tr = document.createElement2("tr");
+
+        for (let j = 0; j < cols; j++) {
+            let td = document.createElement2("td");
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+    parent.appendChild(table);
+}
+
+
 // - за допомоги document.createElement, appendChild та 2х циклів створити таблицю на 10 рядків з 5 ячейками всередені
+
+let elem = document.querySelector(`#elem3`);
+
+createTable3(elem, 10, 5);
+function createTable3(parent, cols, rows) {
+    let table = document.createElement2("table");
+
+    for (let i = 0; i < rows; i++) {
+        let tr = document.createElement3("tr");
+
+        for (let j = 0; j < cols; j++) {
+            let td = document.createElement3("td");
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+    parent.appendChild(table);
+}
+
+
 // - за допомоги document.createElement, appendChild та 2х циклів створити таблицю на n рядків з m ячейками всередені. n та m отримати з prompt
+let n=+prompt('Enter number of rows');
+let m=+prompt("Enter number of columns");
+
+let elem = document.querySelector(`#elem4`);
+
+createTable4(elem, n, m);
+function createTable4(parent, cols, rows) {
+    let table = document.createElement2("table");
+
+    for (let i = 0; i < rows; i++) {
+        let tr = document.createElement4("tr");
+
+        for (let j = 0; j < cols; j++) {
+            let td = document.createElement4("td");
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+    parent.appendChild(table);
+}
+
 
 // --Завантажити з мережі будь-який шаблон сайту. Підключити до нього свій скріпт-файл. У файлі прописати наступні доступи та дії
 //  - знайти всі елементі, які мають class
