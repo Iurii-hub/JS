@@ -147,6 +147,19 @@ console.log(averNumber145);
 
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
+
+function getAnyArray (arguments) {
+  let anyNumber = 0;
+  for (const i of arguments) {
+    anyNumber = anyNumberArray.length;
+  }
+  return anyNumber;
+}
+let anyNumberArray = [23, -17, 10, 4];
+let anyNumber159 = getAnyArray(anyNumberArray);
+console.log(anyNumber159);
+
+
 // - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
 
 
