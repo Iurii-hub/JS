@@ -68,21 +68,56 @@ function getMinMax() {
     }
   }
 
-  console.log(max + ' MAX')
-  return min;
+  console.log(max + " max")
+  return (min + " min");
 }
 
-let num = getMinMax(2, 9, 6, -532, 4, 10, 16, 8, 0, -90, 7, 88, 534, 78);
-console.log(num);
+let num075 = getMinMax(2, 9, 6, -532, 4, 10, 16, 8, 0, -90, 7, 88, 534, 78);
+console.log(num075);
 
 
 // - створити функцію яка виводить масив
 
+function getArray081(arr) {
+  console.log(arr);
 
+}
 
 
 // - створити функцію яка повертає найбільше число з масиву
+
+function getMaxArray (arguments) {
+  let max = arguments[0];
+
+  for (let i of arguments) {
+    if (i > max) {
+      max = i;
+    }
+  }
+  return max;
+}
+let maxArray100 = [11, -5, 44, -11, 232, 431];
+let num100 = getMaxArray(maxArray100);
+console.log(num100);
+
+
 // - створити функцію яка повертає найменьше число з масиву
+
+function getMinArray (arguments) {
+  let min = arguments[0];
+
+  for (let i of arguments) {
+    if (i < min) {
+      min = i;
+    }
+  }
+  return min;
+}
+let minArray116 = [23, -11, 45, -234];
+let num117 = getMinArray(minArray116);
+console.log(num117);
+
+
 // - створити функцію яка приймає масив чисел та складає значення елементів масиву та повертає його.
 // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
 // - Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
