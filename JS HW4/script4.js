@@ -119,7 +119,33 @@ console.log(num117);
 
 
 // - створити функцію яка приймає масив чисел та складає значення елементів масиву та повертає його.
+
+function getSumArray (arguments) {
+  let sum = 0;
+  for (let i of arguments) {
+    sum += i;
+  }
+  return sum;
+}
+let sumArray = [-2, 7, 7, 12, 1];
+let sum131 = getSumArray(sumArray);
+console.log(sum131);
+
+
 // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
+
+function getAverageArray (arguments) {
+  let averNumber = 0;
+  for (const i of arguments) {
+    averNumber += i / (averageArray.length);
+  }
+  return averNumber;
+}
+let averageArray = [23, -17, 10];
+let averNumber145 = getAverageArray(averageArray);
+console.log(averNumber145);
+
+
 // - Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
 // - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
 
