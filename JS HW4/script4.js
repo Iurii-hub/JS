@@ -1,5 +1,8 @@
 // - створити функцію яка виводить масив
 
+let function name(params) {
+    
+}
 let logArray=arr=>{for(let elements of arr){
     console.log(elements);}}
 
