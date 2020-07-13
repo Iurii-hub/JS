@@ -1,28 +1,60 @@
 // - створити функцію яка виводить масив
 
-function arr(array) {
-  console.log(array);
+function getArray003(arr) {
+  console.log(arr);
 }
     
 
 // - створити функцію яка заповнює масив рандомними числами та виводить його. Для виведення використати попвередню функцію.
 
+function getArrayRandom010(length, min, max) {
+  let array011 = [];
+  for (let i = 0; i < length; i++) {
+    array011.push(Math.floor(Math.random() * (max - min) + min))
+  }
+  getArray003(array011)
+}
 
+getArrayRandom010(5, -33, 33);
 
 
 // - створити функцію яка приймає три числа та виводить та повертає найменьше.
 
+function get3min() {
+  let min = arguments[0];
 
+  for (let i = 0; i < 3; i++) {
+    if (arguments[i] < min) {
+      min = arguments[i]
+    }
+  }
+  console.log(min);
+  return min;
+}
+
+get3min(34, -5, 1);
 
 
 // - створити функцію яка приймає три числа та виводить та повертає найбільше.
 
+function get3max() {
+  let max = arguments[0];
+  
+  for (let i = 0; i < 3; i++) {
+    if (arguments[i] > max) {
+      max = arguments[i]
+    }
+  }
+  console.log(max);
+  return max;
+}
 
+get3max(31, 29, 27);
 
 
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше
 
-function minimatorMaximator() {
+function getMinMax() {
   let min = arguments[0];
   let max = arguments[0];
 
@@ -40,12 +72,15 @@ function minimatorMaximator() {
   return min;
 }
 
-let nim = minimatorMaximator(2, 9, 6, -532, 4, 10, 16, 8, 0, -90, 7, 88, 534, 78);
-
-console.log(nim);
+let num = getMinMax(2, 9, 6, -532, 4, 10, 16, 8, 0, -90, 7, 88, 534, 78);
+console.log(num);
 
 
 // - створити функцію яка виводить масив
+
+
+
+
 // - створити функцію яка повертає найбільше число з масиву
 // - створити функцію яка повертає найменьше число з масиву
 // - створити функцію яка приймає масив чисел та складає значення елементів масиву та повертає його.
