@@ -228,8 +228,20 @@ itemChanger([1, 2, 3, 4, 9, 62, 3, 4, 5], 4)
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
 
-
-
+function getZeroEnd (array) {
+  let numbers = [];
+  let zeros = [];
+  
+  for (let i = 0; i < array.length; i++) {
+    array[i] === 0
+      ? zeros.push(array[i])
+      : numbers.push(array[i]);
+  }
+  return numbers.concat(zeros);
+}
+console.log(getZeroEnd([1,0,6,0,3]));
+console.log(getZeroEnd([0,1,2,3,4]));
+console.log(getZeroEnd([0,0,1,0]));
 
 
 // Створити функцію яка :
@@ -270,8 +282,67 @@ let arrCars = [
   {model: "suzuki", year: 1991, hp: 177, color: "silver"}
 ];
 
+function getCarList (arrCars, id) {
+  const container = document.getElementById(id);
+  const ul = document.createElement("ul");
+  for (let i = 0; i < arrCars.length; i++) {
+    // console.log(arrCars[i]);
+    const element = arrCars[i];
+    const li = document.createElement("li");
+    li.innerText = `${i} - ${element.model}`;
+    ul.appendChild(li);
+  }
+  container.appendChild(ul);
+  document.body.appendChild(container);
+}
+getCarList(arrCars, "car-list");
+
 
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали. Всі властивості авто в обному блоці
+
+function getCarId (count, typeTag) {
+  for (let i = 0; i < count; i++) {
+    const tag = document.createElement(typeTag);
+    tag.id = i;
+    document.body.appendChild(tag);
+  }
+}
+
+
+function getCars (cars) {
+  const block = document.createElement("div");
+  const model = document.createElement("h2");
+  model.innerText = cars.model;
+  const year = document.createElement("h3");
+  year.innerText = cars.year;
+  const hp = document.createElement("p");
+  hp.innerText = cars.hp;
+  const color = document.createElement("p");
+  color.innerText = cars.color
+
+  block.appendChild(model);
+  block.appendChild(year);
+  block.appendChild(hp);
+  block.appendChild(color);
+
+  return (block);
+}
+
+function getCarInBlock(arrayCars) {
+  const listCars = document.querySelectorAll("[id]");
+  console.log(listCars);
+  for (const divElement of listCars) {
+    const cars = arrayCars.find((cars) => cars.id === divElement.id);
+    if (cars) {
+      divElement.appendChild(getCars(cars));
+    }
+  }
+}
+
+getCarId(10, "div");
+getCarInBlock(arrCars);
+
+
 // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
 // Для кожної властивості створити всередені блока автомоблія свій блок
