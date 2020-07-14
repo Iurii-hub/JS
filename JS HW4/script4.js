@@ -162,23 +162,25 @@ console.log(anyNumber159);
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
 
-
 function getAnyArray2 (arguments) {
   let numField = 0;
   for (let i = 0; i < numFieldArray.length; i++) {
-    if (i = Object.key(arguments)) {
-      for (let key in i) {
-        numField++;
+    if (typeof arguments[i] === "object" && !Array.isArray(arguments[i])) {
+      // console.log(typeof arguments[i]);
+      for (let keys in Object.keys(arguments[i])) {
+        if (keys) {
+          numField++;
+        }
       }
     }
+    // console.log(Object.keys(arguments[i]));
   }
   return numField;
 }
   
-let numFieldArray = [{num1: 11, type1: 123}, {num2: 45, type2: 123}, {num3: 145, type3: 3}];
+let numFieldArray = [{num1: 11, type1: 123, type3: 45, type4: 4567}, false, 12356, "tes45t", [12, 45], {num2: 45, type2: 123}, {num3: 145, type3: 3}, {num4: 45, type4: 23}];
 let numField173 = getAnyArray2(numFieldArray);
-console.log(getAnyArray2(numField173));
-console.log(getAnyArray2("numField173")); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+console.log(numField173);
 
 
 // - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
