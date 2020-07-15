@@ -49,7 +49,7 @@
 //    }
 
 class Tag {
-    constructor(titleOfTag, action, atributes = []) {
+    constructor (titleOfTag, action, atributes = []) {
         this.titleOfTag = titleOfTag;
         this.action = action;
         this.atributes = atributes;
@@ -57,7 +57,7 @@ class Tag {
 }
 
 class Atributes {
-    constructor(TitleOfAttr, action) {
+    constructor (TitleOfAttr, action) {
         this.titleOfAttr = TitleOfAttr;
         this.action = action;
     }
@@ -139,7 +139,6 @@ console.log(a, div, h1, span, input, form, option, select);
 // ==============================================
 
 
-
 // ==============================================
 // - Створити об'єкт car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
 // -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
@@ -148,6 +147,24 @@ console.log(a, div, h1, span, input, form, option, select);
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 // ==============================================
+
+let car = {
+    model: "6",
+    manufacturer: "mazda",
+    yearOfProduction: 2020,
+    maxSpeed: 222,
+    engineVolume: "2.0",
+
+    drive () {`їдемо зі швидкістю ${this.maxSpeed} на годину`},
+    info () {console.log(this)},
+    increaseMaxSpeed (newSpeed) {this.maxSpeed = newSpeed},
+    changeYear (newValue) {this.yearOfProduction = newValue},
+    addDriver (driver) {this.driver = driver},
+
+}
+
+car.drive ();
+console.log(car.drive);
 
 
 // ==============================================
@@ -184,3 +201,114 @@ console.log(a, div, h1, span, input, form, option, select);
 // --Сторити об'єкт типу "принц" за допомоги функції конструктора з полями ім'я, вік, туфелька яку він знайшов, та функцію "пошук попелюшки"
 // -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
 // ==============================================
+
+
+
+
+
+
+class Human {
+    constructor(age, gender, color) {
+      this.age = age;
+      this.gender = gender;
+      this.color = color;
+      this.money = 0;
+    }
+  
+    eat() {
+      console.log('Om nom nom')
+    }
+  
+    goWork() {
+      this.money += 100;
+    }
+  
+    goBeer() {
+      if (this.money > 200) {
+        document.write('I AM HAMMERED')
+        document.write(`<br>`)
+  
+        this.money -= 200;
+      } else {
+        document.write('DOW')
+        document.write(`<br>`)
+  
+      }
+    }
+  }
+  
+  
+  class Developer extends Human {
+    constructor(age, gender, color, skill) {
+      super(age, gender, color);
+      this.skill = skill;
+    }
+  
+    goBeer() {
+      if (this.money < 500) {
+        document.write('Вася позич до ЗП');
+        document.write(`<br>`)
+  
+      } else {
+        document.write('Го в правду');
+        document.write(`<br>`)
+  
+        this.money = 0;
+      }
+    }
+  
+    codding() {
+      document.write(`Tap tap tap on ${this.skill}`)
+      document.write(`<br>`)
+    }
+  }
+  
+  let Iron = new Developer(20, 'female', 'white', 'JS');
+  
+  Iron.goWork()
+  Iron.goWork()
+  Iron.goWork()
+  Iron.goWork()
+  Iron.goWork()
+  Iron.goWork()
+  Iron.goWork()
+  Iron.goWork()
+  
+  Iron.goBeer()
+  
+  Iron.codding()
+  
+  console.log(Iron);
+  
+  let homer = new Human(35, 'male', 'yellow');
+  
+  console.log(homer);
+  
+  homer.eat();
+  
+  homer.goBeer();
+  
+  homer.goWork()
+  homer.goWork()
+  homer.goWork()
+  
+  console.log(homer);
+  
+  homer.goBeer();
+  
+  console.log(homer);
+  
+//   homer.codding();
+  
+  
+  
+  class MyAddres {
+    constructor(street) {
+      this.street = street;
+    }
+  }
+  
+  const robota = new MyAddres('H.UPA')
+  const dim = new MyAddres('VV')
+  
+  let addreses = [robota, dim]
