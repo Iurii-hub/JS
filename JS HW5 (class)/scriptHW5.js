@@ -7,20 +7,18 @@
 //  - опис його дій
 //  - масив з атрибутами (2-3 атрибути максимум)
 
-function Car (model, color, speed, spec = [engine, hp]) {
-    this.model = model;
-    this.color = color;
-    this.speed = speed;
-    this.spec = spec;
-    // this.engine = engine;
-    // this.hp = hp;
-}
+// function Car (model, color, speed, spec = [engine, hp]) {
+//     this.model = model;
+//     this.color = color;
+//     this.speed = speed;
+//     this.spec = spec;
+// }
 
-let mazda = new Car(6, "red", 211, 2);
+// let mazda = new Car(6, "red", 211, 3);
 
-let engine = "2.0";
-let hp = 165;
-console.log(mazda);
+// let engine = "2.0";
+// let hp = 165;
+// console.log(mazda);
 
 
 //  Кожен атрибут описати як окремий який буде містити
@@ -49,6 +47,60 @@ console.log(mazda);
 //         ]
 
 //    }
+
+class Tag {
+    constructor(titleOfTag, action, atributes = []) {
+        this.titleOfTag = titleOfTag;
+        this.action = action;
+        this.atributes = atributes;
+    }
+}
+
+class Atributes {
+    constructor(TitleOfAttr, action) {
+        this.titleOfAttr = TitleOfAttr;
+        this.action = action;
+    }
+}
+
+let a = new Tag ("a", "Тег <a> является одним из важных элементов HTML и предназначен для создания ссылок.");
+a.atributes[0] = new Atributes ("accesskey", "Активация ссылки с помощью комбинации клавиш.");
+a.atributes[1] = new Atributes ("coords", "Устанавливает координаты активной области.");
+a.atributes[2] = new Atributes ("download", "Предлагает скачать указанный по ссылке файл.");
+
+let div = new Tag ("div","Элемент <div> является блочным элементом и предназначен для выделения фрагмента документа с целью изменения вида содержимого.");
+div.atributes[0] = new Atributes ("align", "Задает выравнивание содержимого тега <div>");
+div.atributes[1] = new Atributes ("title", "Добавляет всплывающую подсказку к содержимому.");
+
+let h1 = new Tag ("h1","HTML предлагает шесть заголовков разного уровня, которые показывают относительную важность секции, расположенной после заголовка.");
+h1.atributes[0] = new Atributes ("align","Определяет выравнивание заголовка.");
+
+let span = new Tag ("span", "Тег <span> предназначен для определения строчных элементов документа");
+span.atributes[0] = new Atributes ("accesskey", "Позволяет получить доступ к элементу с помощью заданного сочетания клавиш.");
+span.atributes[1] = new Atributes ("class", "Определяет имя класса, которое позволяет связать тег со стилевым оформлением.");
+span.atributes[2] = new Atributes ("contenteditable", "Сообщает, что элемент доступен для редактирования пользователем.");
+
+let input = new Tag ("input", "Тег <input> является одним из разносторонних элементов формы и позволяет создавать разные элементы интерфейса и обеспечить");
+input.atributes[0] = new Atributes ("accesskey", "Переход к элементу с помощью комбинации клавиш.");
+input.atributes[1] = new Atributes ("accept", "Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов.")
+
+let form = new Tag ("form","Тег <form> устанавливает форму на веб-странице.");
+form.atributes[0] = new Atributes ("accept-charset", "Устанавливает кодировку, в которой сервер может принимать и обрабатывать данные.");
+form.atributes[1] = new Atributes ("action", "Адрес программы или документа, который обрабатывает данные формы.");
+form.atributes[2] = new Atributes ("autocomplete", "Включает автозаполнение полей формы.");
+
+let option = new Tag ("option", "Тег <option> определяет отдельные пункты списка, создаваемого с помощью контейнера <select>");
+option.atributes[0] = new Atributes ("disabled", "Заблокировать для доступа элемент списка.");
+option.atributes[1] = new Atributes ("label", "Указание метки пункта списка.");
+option.atributes[2] = new Atributes ("selected", "Заранее устанавливает определенный пункт списка выделенным.");
+
+let select = new Tag ("select", "Тег <select> позволяет создать элемент интерфейса в виде раскрывающегося списка, а также список с одним или множественным выбором,");
+select.atributes[0] = new Atributes ("autofocus", "Устанавливает, что список получает фокус после загрузки страницы.");
+select.atributes[1] = new Atributes ("disabled", "Блокирует доступ и изменение элемента.");
+
+console.log(a, div, h1, span, input, form, option, select);
+
+
 // ==============================================
 
 
