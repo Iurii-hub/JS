@@ -217,6 +217,7 @@ function car1 (model, manufacturer, yearOfProduction, maxSpeed, engineVolume) {
 
   this.drive = function () {
     document.write(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+    document.write("<br>");
   },
 
   this.info = function () {
