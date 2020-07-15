@@ -295,6 +295,37 @@ honda.drive();
 // -- за допоиоги циклу знайти яка попелюшка повинна бути з принцом
 // ==============================================
 
+class Cinderella {
+  constructor (name, age, footSize) {
+    this.name = name,
+    this.age = age,
+    this.footSize = footSize
+  }
+}
+
+let arrCinderellas = [
+  {name: "Inna", age: 23, footSize: 38},
+  {name: "Irina", age: 29, footSize: 37},
+  {name: "Karina", age: 18, footSize: 39},
+  {name: "Mila", age: 19, footSize: 35},
+  {name: "Rita", age: 27, footSize: 36},
+  {name: "Olga", age: 31, footSize: 38},
+  {name: "Sveta", age: 44, footSize: 40},
+  {name: "Nata", age: 22, footSize: 41},
+  {name: "Tanya", age: 33, footSize: 37},
+  {name: "Katya", age: 28, footSize: 35},
+]
+
+class Prince {
+  constructor (name, age, shoeFinded) {
+    this.name = name,
+    this.age = age,
+    this.shoeFinded = shoeFinded
+  }
+}
+
+let Kolya = new Prince ("Kolya", 32, 35)
+// console.log(Kolya);
 
 
 // ==============================================
