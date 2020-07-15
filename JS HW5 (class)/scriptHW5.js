@@ -6,21 +6,6 @@
 //  -назва тегу
 //  - опис його дій
 //  - масив з атрибутами (2-3 атрибути максимум)
-
-// function Car (model, color, speed, spec = [engine, hp]) {
-//     this.model = model;
-//     this.color = color;
-//     this.speed = speed;
-//     this.spec = spec;
-// }
-
-// let mazda = new Car(6, "red", 211, 3);
-
-// let engine = "2.0";
-// let hp = 165;
-// console.log(mazda);
-
-
 //  Кожен атрибут описати як окремий який буде містити
 //  -назву атрибуту
 //  -опис дії атрибуту
@@ -47,20 +32,106 @@
 //         ]
 
 //    }
+// ==============================================
+
+function tagFunction (titleOfTag, action, atributes = []) {
+      this.titleOfTag = titleOfTag;
+      this.action = action;
+      this.atributes = atributes;
+  
+}
+
+function atributesFunction (TitleOfAttr, action) {
+      this.titleOfAttr = TitleOfAttr;
+      this.action = action;
+  
+}
+
+let a1 = new tagFunction ("a", "Тег <a> является одним из важных элементов HTML и предназначен для создания ссылок.");
+a1.atributes[0] = new atributesFunction ("accesskey", "Активация ссылки с помощью комбинации клавиш.");
+a1.atributes[1] = new atributesFunction ("coords", "Устанавливает координаты активной области.");
+a1.atributes[2] = new atributesFunction ("download", "Предлагает скачать указанный по ссылке файл.");
+
+let div1 = new tagFunction ("div","Элемент <div> является блочным элементом и предназначен для выделения фрагмента документа с целью изменения вида содержимого.");
+div1.atributes[0] = new atributesFunction ("align", "Задает выравнивание содержимого тега <div>");
+div1.atributes[1] = new atributesFunction ("title", "Добавляет всплывающую подсказку к содержимому.");
+
+let h11 = new tagFunction ("h1","HTML предлагает шесть заголовков разного уровня, которые показывают относительную важность секции, расположенной после заголовка.");
+h11.atributes[0] = new atributesFunction ("align","Определяет выравнивание заголовка.");
+
+let span1 = new tagFunction ("span", "Тег <span> предназначен для определения строчных элементов документа");
+span1.atributes[0] = new atributesFunction ("accesskey", "Позволяет получить доступ к элементу с помощью заданного сочетания клавиш.");
+span1.atributes[1] = new atributesFunction ("class", "Определяет имя класса, которое позволяет связать тег со стилевым оформлением.");
+span1.atributes[2] = new atributesFunction ("contenteditable", "Сообщает, что элемент доступен для редактирования пользователем.");
+
+let input1 = new tagFunction ("input", "Тег <input> является одним из разносторонних элементов формы и позволяет создавать разные элементы интерфейса и обеспечить");
+input1.atributes[0] = new atributesFunction ("accesskey", "Переход к элементу с помощью комбинации клавиш.");
+input1.atributes[1] = new atributesFunction ("accept", "Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов.")
+
+let form1 = new tagFunction ("form","Тег <form> устанавливает форму на веб-странице.");
+form1.atributes[0] = new atributesFunction ("accept-charset", "Устанавливает кодировку, в которой сервер может принимать и обрабатывать данные.");
+form1.atributes[1] = new atributesFunction ("action", "Адрес программы или документа, который обрабатывает данные формы.");
+form1.atributes[2] = new atributesFunction ("autocomplete", "Включает автозаполнение полей формы.");
+
+let option1 = new tagFunction ("option", "Тег <option> определяет отдельные пункты списка, создаваемого с помощью контейнера <select>");
+option1.atributes[0] = new atributesFunction ("disabled", "Заблокировать для доступа элемент списка.");
+option1.atributes[1] = new atributesFunction ("label", "Указание метки пункта списка.");
+option1.atributes[2] = new atributesFunction ("selected", "Заранее устанавливает определенный пункт списка выделенным.");
+
+let select1 = new tagFunction ("select", "Тег <select> позволяет создать элемент интерфейса в виде раскрывающегося списка, а также список с одним или множественным выбором,");
+select1.atributes[0] = new atributesFunction ("autofocus", "Устанавливает, что список получает фокус после загрузки страницы.");
+select1.atributes[1] = new atributesFunction ("disabled", "Блокирует доступ и изменение элемента.");
+
+console.log(a1, div1, h11, span1, input1, form1, option1, select1);
+
+
+// ==============================================
+// -  Створити класс  для об'єкту який описує теги
+// Властивості
+//  -назва тегу
+//  - опис його дій
+//  - масив з атрибутами (2-3 атрибути максимум)
+//  Кожен атрибут описати як окремий який буде містити
+//  -назву атрибуту
+//  -опис дії атрибуту
+//  інформацію брати з htmlbook.ru
+
+//  Таким чином описати теги
+//  -a
+//  -div
+//  -h1
+//  -span
+//  -input
+//  -form
+//  -option
+//  -select
+//  Приклад результату
+//    {
+//         titleOfTag: 'area',
+//         action: `Каждый элемент <area> определяет активные области изображения, которые являются ссылками...`,
+//         attrs: [
+//         {titleOfAttr: 'accesskey', actionOfAttr: 'Переход к области с помощью комбинации клавиш'},
+//         {/*some props and values*/},
+//         {/*...*/},
+//         {/*...*/},
+//         ]
+
+//    }
+// ==============================================
 
 class Tag {
-    constructor (titleOfTag, action, atributes = []) {
-        this.titleOfTag = titleOfTag;
-        this.action = action;
-        this.atributes = atributes;
-    }
+  constructor (titleOfTag, action, atributes = []) {
+      this.titleOfTag = titleOfTag;
+      this.action = action;
+      this.atributes = atributes;
+  }
 }
 
 class Atributes {
-    constructor (TitleOfAttr, action) {
-        this.titleOfAttr = TitleOfAttr;
-        this.action = action;
-    }
+  constructor (TitleOfAttr, action) {
+      this.titleOfAttr = TitleOfAttr;
+      this.action = action;
+  }
 }
 
 let a = new Tag ("a", "Тег <a> является одним из важных элементов HTML и предназначен для создания ссылок.");
@@ -102,44 +173,6 @@ console.log(a, div, h1, span, input, form, option, select);
 
 
 // ==============================================
-
-
-// ==============================================
-// -  Створити класс  для об'єкту який описує теги
-// Властивості
-//  -назва тегу
-//  - опис його дій
-//  - масив з атрибутами (2-3 атрибути максимум)
-//  Кожен атрибут описати як окремий який буде містити
-//  -назву атрибуту
-//  -опис дії атрибуту
-//  інформацію брати з htmlbook.ru
-
-//  Таким чином описати теги
-//  -a
-//  -div
-//  -h1
-//  -span
-//  -input
-//  -form
-//  -option
-//  -select
-//  Приклад результату
-//    {
-//         titleOfTag: 'area',
-//         action: `Каждый элемент <area> определяет активные области изображения, которые являются ссылками...`,
-//         attrs: [
-//         {titleOfAttr: 'accesskey', actionOfAttr: 'Переход к области с помощью комбинации клавиш'},
-//         {/*some props and values*/},
-//         {/*...*/},
-//         {/*...*/},
-//         ]
-
-//    }
-// ==============================================
-
-
-// ==============================================
 // - Створити об'єкт car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
 // -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
 // -- info () - яка виводить всю інформацію про автомобіль
@@ -149,22 +182,21 @@ console.log(a, div, h1, span, input, form, option, select);
 // ==============================================
 
 let car = {
-    model: "6",
-    manufacturer: "mazda",
-    yearOfProduction: 2020,
-    maxSpeed: 222,
-    engineVolume: "2.0",
+    model: "civic",
+    manufacturer: "honda",
+    yearOfProduction: 2010,
+    maxSpeed: 172,
+    engineVolume: "1.6",
 
-    drive () {`їдемо зі швидкістю ${this.maxSpeed} на годину`},
-    info () {console.log(this)},
+    drive () {console.log(`їдемо зі швидкістю ${this.maxSpeed} km на годину`)},
+    info () {console.log(this.car)},
     increaseMaxSpeed (newSpeed) {this.maxSpeed = newSpeed},
     changeYear (newValue) {this.yearOfProduction = newValue},
     addDriver (driver) {this.driver = driver},
 
 }
 
-car.drive ();
-console.log(car.drive);
+car.drive();
 
 
 // ==============================================
@@ -176,6 +208,41 @@ console.log(car.drive);
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 // ==============================================
 
+function car1 (model, manufacturer, yearOfProduction, maxSpeed, engineVolume) {
+  this.model = model,
+  this.manufacturer = manufacturer,
+  this.yearOfProduction = yearOfProduction,
+  this.maxSpeed = maxSpeed,
+  this.engineVolume = engineVolume,
+
+  this.drive = function () {
+    document.write(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+  },
+
+  this.info = function () {
+    console.log(this);
+  },
+
+  this.increaseMaxSpeed = function (newSpeed) {
+    this.maxSpeed += newSpeed;
+  },
+  this.changeYear = function (newValue) {
+    this.yearOfProduction = newValue;
+  },
+
+  this.addDriver = function (driver) {
+    this.driver = driver;
+  }
+}
+
+let mazda = new car1 (6, "mazda motor", 2003, 211, "2.0")
+mazda.info();
+
+// mazda.maxSpeed = 344;
+
+mazda.drive();
+
+
 // ==============================================
 // - Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
 // -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
@@ -185,6 +252,40 @@ console.log(car.drive);
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 // ==============================================
 
+class Car2 {
+  constructor (model, manufacturer, yearOfProduction, maxSpeed, engineVolume) {
+    this.model = model,
+    this.manufacturer = manufacturer,
+    this.yearOfProduction = yearOfProduction,
+    this.maxSpeed = maxSpeed,
+    this.engineVolume = engineVolume,
+
+    this.drive = function () {
+      document.write(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+    },
+  
+    this.info = function () {
+      console.log(this);
+    },
+  
+    this.increaseMaxSpeed = function (newSpeed) {
+      this.maxSpeed += newSpeed;
+    },
+    this.changeYear = function (newValue) {
+      this.yearOfProduction = newValue;
+    },
+  
+    this.addDriver = function (driver) {
+      this.driver = driver;
+    }
+  }
+}
+
+let honda = new Car2 ("accord", "honda motor", 2012, 199, "2.4")
+honda.info();
+
+honda.drive();
+ 
 
 // ==============================================
 // -створити класс попелюшка з полями ім'я, вік, розмір ноги
@@ -207,108 +308,108 @@ console.log(car.drive);
 
 
 
-class Human {
-    constructor(age, gender, color) {
-      this.age = age;
-      this.gender = gender;
-      this.color = color;
-      this.money = 0;
-    }
+// class Human {
+//     constructor(age, gender, color) {
+//       this.age = age;
+//       this.gender = gender;
+//       this.color = color;
+//       this.money = 0;
+//     }
   
-    eat() {
-      console.log('Om nom nom')
-    }
+//     eat() {
+//       console.log('Om nom nom')
+//     }
   
-    goWork() {
-      this.money += 100;
-    }
+//     goWork() {
+//       this.money += 100;
+//     }
   
-    goBeer() {
-      if (this.money > 200) {
-        document.write('I AM HAMMERED')
-        document.write(`<br>`)
+//     goBeer() {
+//       if (this.money > 200) {
+//         document.write('I AM HAMMERED')
+//         document.write(`<br>`)
   
-        this.money -= 200;
-      } else {
-        document.write('DOW')
-        document.write(`<br>`)
+//         this.money -= 200;
+//       } else {
+//         document.write('DOW')
+//         document.write(`<br>`)
   
-      }
-    }
-  }
-  
-  
-  class Developer extends Human {
-    constructor(age, gender, color, skill) {
-      super(age, gender, color);
-      this.skill = skill;
-    }
-  
-    goBeer() {
-      if (this.money < 500) {
-        document.write('Вася позич до ЗП');
-        document.write(`<br>`)
-  
-      } else {
-        document.write('Го в правду');
-        document.write(`<br>`)
-  
-        this.money = 0;
-      }
-    }
-  
-    codding() {
-      document.write(`Tap tap tap on ${this.skill}`)
-      document.write(`<br>`)
-    }
-  }
-  
-  let Iron = new Developer(20, 'female', 'white', 'JS');
-  
-  Iron.goWork()
-  Iron.goWork()
-  Iron.goWork()
-  Iron.goWork()
-  Iron.goWork()
-  Iron.goWork()
-  Iron.goWork()
-  Iron.goWork()
-  
-  Iron.goBeer()
-  
-  Iron.codding()
-  
-  console.log(Iron);
-  
-  let homer = new Human(35, 'male', 'yellow');
-  
-  console.log(homer);
-  
-  homer.eat();
-  
-  homer.goBeer();
-  
-  homer.goWork()
-  homer.goWork()
-  homer.goWork()
-  
-  console.log(homer);
-  
-  homer.goBeer();
-  
-  console.log(homer);
-  
-//   homer.codding();
+//       }
+//     }
+//   }
   
   
+//   class Developer extends Human {
+//     constructor(age, gender, color, skill) {
+//       super(age, gender, color);
+//       this.skill = skill;
+//     }
   
-  class MyAddres {
-    constructor(street) {
-      this.street = street;
-    }
-  }
+//     goBeer() {
+//       if (this.money < 500) {
+//         document.write('Вася позич до ЗП');
+//         document.write(`<br>`)
   
-  const robota = new MyAddres('H.UPA')
-  const dim = new MyAddres('VV')
+//       } else {
+//         document.write('Го в правду');
+//         document.write(`<br>`)
   
-  let addreses = [robota, dim]
+//         this.money = 0;
+//       }
+//     }
+  
+//     codding() {
+//       document.write(`Tap tap tap on ${this.skill}`)
+//       document.write(`<br>`)
+//     }
+//   }
+  
+//   let Iron = new Developer(20, 'female', 'white', 'JS');
+  
+//   Iron.goWork()
+//   Iron.goWork()
+//   Iron.goWork()
+//   Iron.goWork()
+//   Iron.goWork()
+//   Iron.goWork()
+//   Iron.goWork()
+//   Iron.goWork()
+  
+//   Iron.goBeer()
+  
+//   Iron.codding()
+  
+//   console.log(Iron);
+  
+//   let homer = new Human(35, 'male', 'yellow');
+  
+//   console.log(homer);
+  
+//   homer.eat();
+  
+//   homer.goBeer();
+  
+//   homer.goWork()
+//   homer.goWork()
+//   homer.goWork()
+  
+//   console.log(homer);
+  
+//   homer.goBeer();
+  
+//   console.log(homer);
+  
+// //   homer.codding();
+  
+  
+  
+//   class MyAddres {
+//     constructor(street) {
+//       this.street = street;
+//     }
+//   }
+  
+//   const robota = new MyAddres('H.UPA')
+//   const dim = new MyAddres('VV')
+  
+//   let addreses = [robota, dim]
