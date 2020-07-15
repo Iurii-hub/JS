@@ -20,31 +20,52 @@ getArrayRandom010(5, -33, 33);
 
 // - створити функцію яка приймає три числа та виводить та повертає найменьше.
 
-function get3min() {
-  let min = arguments[0];
+// function get3min() {
+//   let min = arguments[0];
 
-  for (let i = 0; i < 3; i++) {
-    if (arguments[i] < min) {
-      min = arguments[i]
-    }
-  }
+//   for (let i = 0; i < 3; i++) {
+//     if (arguments[i] < min) {
+//       min = arguments[i]
+//     }
+//   }
+//   console.log(min);
+//   return min;
+// }
+
+// get3min(34, -5, 1);
+
+function get3min(a, b, c) {
+  let min = a;
+  a > b ? min = b : null;
+  c < b ? min = c : null;
+
   console.log(min);
   return min;
 }
-
 get3min(34, -5, 1);
 
 
 // - створити функцію яка приймає три числа та виводить та повертає найбільше.
 
-function get3max() {
-  let max = arguments[0];
+// function get3max() {
+//   let max = arguments[0];
   
-  for (let i = 0; i < 3; i++) {
-    if (arguments[i] > max) {
-      max = arguments[i]
-    }
-  }
+//   for (let i = 0; i < 3; i++) {
+//     if (arguments[i] > max) {
+//       max = arguments[i]
+//     }
+//   }
+//   console.log(max);
+//   return max;
+// }
+
+// get3max(31, 29, 27);
+
+function get3max(a, b, c) {
+  let max = a;
+  a < b ? max = b : null;
+  c > b ? max = c : null;
+
   console.log(max);
   return max;
 }
@@ -86,88 +107,88 @@ function getArray081(arr) {
 
 // - створити функцію яка повертає найбільше число з масиву
 
-function getMaxArray (arguments) {
-  let max = arguments[0];
+function getMaxArray (array) {
+  let max = array[0];
 
-  for (let i of arguments) {
+  for (let i of array) {
     if (i > max) {
       max = i;
     }
   }
   return max;
 }
-let maxArray100 = [11, -5, 44, -11, 232, 431];
-let num100 = getMaxArray(maxArray100);
+let array = [11, -5, 44, -11, 32, 1];
+let num100 = getMaxArray(array);
 console.log(num100);
 
 
 // - створити функцію яка повертає найменьше число з масиву
 
-function getMinArray (arguments) {
-  let min = arguments[0];
+function getMinArray (array1) {
+  let min = array1[0];
 
-  for (let i of arguments) {
+  for (let i of array1) {
     if (i < min) {
       min = i;
     }
   }
   return min;
 }
-let minArray116 = [23, -11, 45, -234];
-let num117 = getMinArray(minArray116);
+let array1 = [23, -11, 45, -234];
+let num117 = getMinArray(array1);
 console.log(num117);
 
 
 // - створити функцію яка приймає масив чисел та складає значення елементів масиву та повертає його.
 
-function getSumArray (arguments) {
+function getSumArray (array2) {
   let sum = 0;
-  for (let i of arguments) {
+  for (let i of array2) {
     sum += i;
   }
   return sum;
 }
-let sumArray = [-2, 7, 7, 12, 1];
-let sum131 = getSumArray(sumArray);
+let array2 = [-12, 7, 7, 12, 1];
+let sum131 = getSumArray(array2);
 console.log(sum131);
 
 
 // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
 
-function getAverageArray (arguments) {
+function getAverageArray (array3) {
   let averNumber = 0;
-  for (const i of arguments) {
-    averNumber += i / (averageArray.length);
+  for (const i of array3) {
+    averNumber += i / (array3.length);
   }
   return averNumber;
 }
-let averageArray = [23, -17, 10];
-let averNumber145 = getAverageArray(averageArray);
+let array3 = [23, -17, 10];
+let averNumber145 = getAverageArray(array3);
 console.log(averNumber145);
 
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
 
-function getAnyArray (arguments) {
+function getAnyArray (array4) {
   let anyNumber = 0;
-  for (const i of arguments) {
-    anyNumber = anyNumberArray.length;
+  for (const i of array4) {
+    anyNumber = array4.length;
   }
   return anyNumber;
 }
-let anyNumberArray = [23, -17, 10, 4];
-let anyNumber159 = getAnyArray(anyNumberArray);
+let array4 = [23, -17, 10, 4];
+let anyNumber159 = getAnyArray(array4);
 console.log(anyNumber159);
 
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
 
-function getAnyArray2 (arguments) {
+function getAnyArray2 (array5) {
   let numField = 0;
-  for (let i = 0; i < numFieldArray.length; i++) {
-    if (typeof arguments[i] === "object" && !Array.isArray(arguments[i])) {
+  for (let i = 0; i < array5.length; i++) {
+    if (typeof array5[i] === "object" && !Array.isArray(array5[i])) {
       // console.log(typeof arguments[i]);
-      for (let keys in Object.keys(arguments[i])) {
+      for (let keys in Object.keys(array5[i])) {
         if (keys) {
           numField++;
         }
@@ -178,8 +199,8 @@ function getAnyArray2 (arguments) {
   return numField;
 }
   
-let numFieldArray = [{num1: 11, type1: 123, type3: 45, type4: 4567}, false, 12356, "tes45t", [12, 45], {num2: 45, type2: 123}, {num3: 145, type3: 3}, {num4: 45, type4: 23}];
-let numField173 = getAnyArray2(numFieldArray);
+let array5 = [{num1: 11, type1: 123, type3: 45, type4: 4567}, false, 12356, "tes45t", [12, 45], {num2: 45, type2: 123}, {num3: 145, type3: 3}, {num4: 45, type4: 23}];
+let numField173 = getAnyArray2(array5);
 console.log(numField173);
 
 
@@ -209,16 +230,22 @@ console.log(someArr);
 
 // - *** приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
 
-function itemChanger(array, i) {
-  const buffer = array[i];
+function itemChanger(array6, i) {
+  if (i < array6.length) {
+    const buffer = array6[i];
 
-  array[i] = array[i + 1]
-  array[i + 1] = buffer;
-
-  console.log(array);
+    array6[i] = array6[i + 1]
+    array6[i + 1] = buffer;
+  
+    console.log(array6);
+  }
+  if (i >= array6.length) {
+    console.log("not right input")
+  }
+  
 }
 
-itemChanger([1, 2, 3, 4, 9, 62, 3, 4, 5], 4)
+itemChanger([1, 2, 3, 4, 9, 62, 3, 4, 5], 99)
 
 
 // - *** створити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
@@ -228,14 +255,14 @@ itemChanger([1, 2, 3, 4, 9, 62, 3, 4, 5], 4)
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
 
-function getZeroEnd (array) {
+function getZeroEnd (array7) {
   let numbers = [];
   let zeros = [];
   
-  for (let i = 0; i < array.length; i++) {
-    array[i] === 0
-      ? zeros.push(array[i])
-      : numbers.push(array[i]);
+  for (let i = 0; i < array7.length; i++) {
+    array7[i] === 0
+      ? zeros.push(array7[i])
+      : numbers.push(array7[i]);
   }
   return numbers.concat(zeros);
 }
@@ -260,11 +287,11 @@ addText();
 
 function addTextAny (typeElem, textElem) {
   let elem = document.createElement(typeElem);
-  elem.innerText = textElem || "practice";
+  elem.innerText = textElem;
 
   document.body.appendChild(elem);
 }
-addTextAny();
+addTextAny("h3", "input");
 
 
 // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.

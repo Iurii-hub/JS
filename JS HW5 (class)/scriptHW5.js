@@ -6,6 +6,23 @@
 //  -назва тегу
 //  - опис його дій
 //  - масив з атрибутами (2-3 атрибути максимум)
+
+function Car (model, color, speed, spec = [engine, hp]) {
+    this.model = model;
+    this.color = color;
+    this.speed = speed;
+    this.spec = spec;
+    // this.engine = engine;
+    // this.hp = hp;
+}
+
+let mazda = new Car(6, "red", 211, 2);
+
+let engine = "2.0";
+let hp = 165;
+console.log(mazda);
+
+
 //  Кожен атрибут описати як окремий який буде містити
 //  -назву атрибуту
 //  -опис дії атрибуту
