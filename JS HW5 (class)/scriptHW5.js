@@ -41,8 +41,8 @@ function tagFunction (titleOfTag, action, atributes = []) {
   
 }
 
-function atributesFunction (TitleOfAttr, action) {
-      this.titleOfAttr = TitleOfAttr;
+function atributesFunction (titleOfAttr, action) {
+      this.titleOfAttr = titleOfAttr;
       this.action = action;
   
 }
@@ -128,8 +128,8 @@ class Tag {
 }
 
 class Atributes {
-  constructor (TitleOfAttr, action) {
-      this.titleOfAttr = TitleOfAttr;
+  constructor (titleOfAttr, action) {
+      this.titleOfAttr = titleOfAttr;
       this.action = action;
   }
 }
@@ -303,18 +303,20 @@ class Cinderella {
   }
 }
 
-let arrCinderellas = [
-  {name: "Inna", age: 23, footSize: 38},
-  {name: "Irina", age: 29, footSize: 37},
-  {name: "Karina", age: 18, footSize: 39},
-  {name: "Mila", age: 19, footSize: 35},
-  {name: "Rita", age: 27, footSize: 36},
-  {name: "Olga", age: 31, footSize: 38},
-  {name: "Sveta", age: 44, footSize: 40},
-  {name: "Nata", age: 22, footSize: 41},
-  {name: "Tanya", age: 33, footSize: 37},
-  {name: "Katya", age: 28, footSize: 35},
-]
+let arrCinderellas = [];
+
+// let arrCinderellas = [
+//   {name: "Inna", age: 23, footSize: 38},
+//   {name: "Irina", age: 29, footSize: 37},
+//   {name: "Karina", age: 18, footSize: 39},
+//   {name: "Mila", age: 19, footSize: 35},
+//   {name: "Rita", age: 27, footSize: 36},
+//   {name: "Olga", age: 31, footSize: 38},
+//   {name: "Sveta", age: 44, footSize: 40},
+//   {name: "Nata", age: 22, footSize: 41},
+//   {name: "Tanya", age: 33, footSize: 37},
+//   {name: "Katya", age: 28, footSize: 35},
+// ]
 
 class Prince {
   constructor (name, age, shoeFinded) {
