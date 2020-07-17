@@ -90,6 +90,12 @@ console.log(arrNames)
 // let filteredNames = arrNames.filter((a) => a < "4");
 // console.log(filteredNames);
 
+// arrNames.find(a => {
+//     return a.valueOf(a > 3)
+// })
+// console.log(arrNames);
+
+
 
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
 
