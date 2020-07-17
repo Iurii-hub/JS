@@ -216,8 +216,7 @@ function car1 (model, manufacturer, yearOfProduction, maxSpeed, engineVolume) {
   this.engineVolume = engineVolume,
 
   this.drive = function () {
-    document.write(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
-    document.write("<br>");
+    console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
   },
 
   this.info = function () {
@@ -262,7 +261,7 @@ class Car2 {
     this.engineVolume = engineVolume,
 
     this.drive = function () {
-      document.write(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+      console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
     },
   
     this.info = function () {
@@ -303,20 +302,22 @@ class Cinderella {
   }
 }
 
-let arrCinderellas = [];
 
-// let arrCinderellas = [
-//   {name: "Inna", age: 23, footSize: 38},
-//   {name: "Irina", age: 29, footSize: 37},
-//   {name: "Karina", age: 18, footSize: 39},
-//   {name: "Mila", age: 19, footSize: 35},
-//   {name: "Rita", age: 27, footSize: 36},
-//   {name: "Olga", age: 31, footSize: 38},
-//   {name: "Sveta", age: 44, footSize: 40},
-//   {name: "Nata", age: 22, footSize: 41},
-//   {name: "Tanya", age: 33, footSize: 37},
-//   {name: "Katya", age: 28, footSize: 35},
-// ]
+
+let cinderella1 = new Cinderella ("Inna", 23, 38);
+let cinderella2 = new Cinderella ("Irina", 29, 37);
+let cinderella3 = new Cinderella ("Karina", 18, 39);
+let cinderella4 = new Cinderella ("Mila", 19, 35);
+let cinderella5 = new Cinderella ("Rita", 27, 36);
+let cinderella6 = new Cinderella ("Olga", 31, 38);
+let cinderella7 = new Cinderella ("Sveta", 44, 40);
+let cinderella8 = new Cinderella ("Nata", 22, 41);
+let cinderella9 = new Cinderella ("Tanya", 33, 37);
+let cinderella10 = new Cinderella ("Katya", 28, 35);
+
+let arrCinderellas = [cinderella1, cinderella2, cinderella3, cinderella4, cinderella5, cinderella6, cinderella7, cinderella8, cinderella9, cinderella10];
+  
+
 
 class Prince {
   constructor (name, age, shoeFinded) {
@@ -324,10 +325,18 @@ class Prince {
     this.age = age,
     this.shoeFinded = shoeFinded
   }
+  findCinderella (arrCinderellas) {
+    for (const i of arrCinderellas) {
+      if (this.shoeFinded === i.footSize) {
+        console.log(i);
+      }
+      
+    }
+  }
 }
 
-let Kolya = new Prince ("Kolya", 32, 35)
-// console.log(Kolya);
+let princeKolya = new Prince ("Kolya", 32, 35)
+princeKolya.findCinderella(arrCinderellas);
 
 
 // ==============================================
@@ -337,113 +346,24 @@ let Kolya = new Prince ("Kolya", 32, 35)
 // -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
 // ==============================================
 
+function getCinderella (name, age, footSize) {
+  this.name = name;
+  this.age = age;
+  this.footSize = footSize;
+}
 
+function getPrince (name, age, shoeFinded) {
+  this.name = name;
+  this.age = age;
+  this.shoeFinded = shoeFinded;
 
+  this.getCinderella = function getCinderella(arrCinderella) {
+    for (const j of arrCinderellas) {
+      if (this.shoeFinded === j.footSize)
+      console.log(j);
+    }
+  }
+}
 
-
-
-// class Human {
-//     constructor(age, gender, color) {
-//       this.age = age;
-//       this.gender = gender;
-//       this.color = color;
-//       this.money = 0;
-//     }
-  
-//     eat() {
-//       console.log('Om nom nom')
-//     }
-  
-//     goWork() {
-//       this.money += 100;
-//     }
-  
-//     goBeer() {
-//       if (this.money > 200) {
-//         document.write('I AM HAMMERED')
-//         document.write(`<br>`)
-  
-//         this.money -= 200;
-//       } else {
-//         document.write('DOW')
-//         document.write(`<br>`)
-  
-//       }
-//     }
-//   }
-  
-  
-//   class Developer extends Human {
-//     constructor(age, gender, color, skill) {
-//       super(age, gender, color);
-//       this.skill = skill;
-//     }
-  
-//     goBeer() {
-//       if (this.money < 500) {
-//         document.write('Вася позич до ЗП');
-//         document.write(`<br>`)
-  
-//       } else {
-//         document.write('Го в правду');
-//         document.write(`<br>`)
-  
-//         this.money = 0;
-//       }
-//     }
-  
-//     codding() {
-//       document.write(`Tap tap tap on ${this.skill}`)
-//       document.write(`<br>`)
-//     }
-//   }
-  
-//   let Iron = new Developer(20, 'female', 'white', 'JS');
-  
-//   Iron.goWork()
-//   Iron.goWork()
-//   Iron.goWork()
-//   Iron.goWork()
-//   Iron.goWork()
-//   Iron.goWork()
-//   Iron.goWork()
-//   Iron.goWork()
-  
-//   Iron.goBeer()
-  
-//   Iron.codding()
-  
-//   console.log(Iron);
-  
-//   let homer = new Human(35, 'male', 'yellow');
-  
-//   console.log(homer);
-  
-//   homer.eat();
-  
-//   homer.goBeer();
-  
-//   homer.goWork()
-//   homer.goWork()
-//   homer.goWork()
-  
-//   console.log(homer);
-  
-//   homer.goBeer();
-  
-//   console.log(homer);
-  
-// //   homer.codding();
-  
-  
-  
-//   class MyAddres {
-//     constructor(street) {
-//       this.street = street;
-//     }
-//   }
-  
-//   const robota = new MyAddres('H.UPA')
-//   const dim = new MyAddres('VV')
-  
-//   let addreses = [robota, dim]
+let princeSanya = new getPrince ("Sanya", 18, 39);
+princeSanya.getCinderella(arrCinderellas);
