@@ -42,29 +42,91 @@ console.log(filteredArr20);
 // let filteredArr20new = arr20.filter((a) => {
 //     return (a % 10 === 0)
 // })
-let filteredArr20new = arr20.filter((a) => (a % 10 === 0));
+let filteredArr20new = arr20.filter((a) => !(a % 10));
 console.log(filteredArr20new);
 
 
 // -- перебрать (проитерировать) массив при помощи foreach()
 
-
+arr20.forEach(a => (a));
+console.log(arr20);
 
 
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут в 3 раза больше
 
+let mappedArr20 = arr20.map(a => (a * 3));
+console.log(mappedArr20);
+
+
 // - создать массив со словами на 15-20 элементов.
+
+let arrNames = ["Gosha", "Alex", "Max", "Tolya", "Kolya", "Sveta", "Tanya", "Nura", "Paul", "David", "Nick", "Anton", "Roma", "Dima", "Valera", "Bogdan"];
+
+
 // -- отсортировать его по алфавиту в восходящем порядке.
+
+// arrNames.sort((a, b) => {
+//     if (a < b) {
+//         return - 1
+//     } 
+// })
+// console.log(arrNames)
+arrNames.sort();
+console.log(arrNames)
+
 // -- отсортировать его по алфавиту  в нисходящем порядке.
+
+arrNames.sort((a, b) => {
+    if (a < b) {
+        return 1
+    }
+    return - 1
+})
+console.log(arrNames)
+
+
 // -- отфильтровать слова длиной менее 4х символов
+
+// let filteredNames = arrNames.filter((a) => a < "4");
+// console.log(filteredNames);
+
+
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
+
+
+
 
 // Все робити через функції масивів (foreach, map ...тд)
 // Дан масив :
-// let users = [ {name: 'vasya', age: 31, status: false}, {name: 'petya', age: 30, status: true}, {name: 'kolya', age: 29, status: true}, {name: 'olya', age: 28, status: false}, {name: 'max', age: 30, status: true}, {name: 'anya', age: 31, status: false}, {name: 'oleg', age: 28, status: false}, {name: 'andrey', age: 29, status: true}, {name: 'masha', age: 30, status: true}, {name: 'olya', age: 31, status: false}, {name: 'max', age: 31, status: true} ];
+let users = [ 
+    {name: 'vasya', age: 31, status: false}, 
+    {name: 'petya', age: 30, status: true}, 
+    {name: 'kolya', age: 29, status: true}, 
+    {name: 'olya', age: 28, status: false}, 
+    {name: 'max', age: 30, status: true}, 
+    {name: 'anya', age: 31, status: false}, 
+    {name: 'oleg', age: 28, status: false}, 
+    {name: 'andrey', age: 29, status: true}, 
+    {name: 'masha', age: 30, status: true}, 
+    {name: 'olya', age: 31, status: false}, 
+    {name: 'max', age: 31, status: true} 
+];
 // - відсортувати його за  віком (зростання , а потім окремо спадання)
+
+
+
+
 // - відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
-// - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти це в новий масив (первинний масив залишиться без змін)
+
+
+
+
+// - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення), 
+// та зберегти це в новий масив (первинний масив залишиться без змін)
+
+
+
+
 // - відсортувати його за індентифікатором
 
 
