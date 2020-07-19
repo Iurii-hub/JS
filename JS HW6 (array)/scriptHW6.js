@@ -87,19 +87,14 @@ console.log(arrNames)
 
 // -- отфильтровать слова длиной менее 4х символов
 
-// let filteredNames = arrNames.filter((a) => a < "4");
-// console.log(filteredNames);
-
-// arrNames.find(a => {
-//     return a.valueOf(a > 3)
-// })
-// console.log(arrNames);
-
+let filteredNames = arrNames.filter(a => a.length < 4);
+console.log(filteredNames);
 
 
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
 
-
+let mappedArrNames = arrNames.map(a => a + "!");
+console.log(mappedArrNames);
 
 
 // Все робити через функції масивів (foreach, map ...тд)
@@ -119,18 +114,33 @@ let users = [
 ];
 // - відсортувати його за  віком (зростання , а потім окремо спадання)
 
+// users.sort((a, b) => a.age - b.age);
+// console.log(users);
 
+users.sort((a, b) => b.age - a.age);
+console.log(users);
 
 
 // - відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
 
+// let filteredUsers = users.filter((a, b) => a.name.length < b.name.length);
+// console.log(users);
 
 
-
-// - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення), 
+// - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор 
+// (По якому принципу його створювати - ваше рішення), 
 // та зберегти це в новий масив (первинний масив залишиться без змін)
 
+let usersNew = [];
+usersNew.push(users);
+usersNew.map((user, id) => {
+    user.id = id + 1;
 
+    return user;
+    
+});
+
+console.log(usersNew);
 
 
 // - відсортувати його за індентифікатором
@@ -145,10 +155,21 @@ let users = [
 // =============================================
 // =============================================
 
-
-
-
-// let cars = [ {producer:"subaru",model: "wrx",year: 2010, color:"blue",type: "sedan",engine: "ej204x",volume: 2,power: 400}, {producer:"subaru",model: "legacy",year: 2007, color:"silver",type: "sedan",engine: "ez30",volume: 3,power: 250}, {producer:"subaru",model: "tribeca",year: 2011, color:"white",type: "jeep",engine: "ej20",volume: 2,power: 300}, {producer:"subaru",model: "leone",year: 1998, color:"yellow",type: "sedan",engine: "ez20x",volume: 2,power: 140}, {producer:"subaru",model: "impreza",year: 2014, color:"red",type: "sedan",engine: "ej204x",volume: 2,power: 200}, {producer:"subaru",model: "outback",year: 2014, color:"red",type: "hachback",engine: "ej204",volume: 2,power: 165}, {producer:"bmw",model: "115",year: 2013, color:"red",type: "hachback",engine: "f15",volume: 1.5,power: 120}, {producer:"bmw",model: "315",year: 2010, color:"white",type: "sedan",engine: "f15",volume: 1.5, power: 120}, {producer:"bmw",model: "650",year: 2009, color:"black",type: "coupe",engine: "f60",volume: 6,power: 350}, {producer:"bmw",model: "320",year: 2012, color:"red",type: "sedan",engine: "f20",volume: 2,power: 180}, {producer:"mercedes",model: "e200",year: 1990, color:"silver",type: "sedan",engine: "eng200",volume: 2,power: 180}, {producer:"mercedes",model: "e63",year 2017, color:"yellow",type: "sedan",engine: "amg63",volume:3,power: 400}, {producer:"mercedes",model: "c250",year: 2017, color:"red",type: "sedan",engine: "eng25",volume: 2.5,power: 230} ];
+let cars = [ 
+    {producer:"subaru",model: "wrx",year: 2010, color:"blue",type: "sedan",engine: "ej204x",volume: 2,power: 400}, 
+    {producer:"subaru",model: "legacy",year: 2007, color:"silver",type: "sedan",engine: "ez30",volume: 3,power: 250}, 
+    {producer:"subaru",model: "tribeca",year: 2011, color:"white",type: "jeep",engine: "ej20",volume: 2,power: 300}, 
+    {producer:"subaru",model: "leone",year: 1998, color:"yellow",type: "sedan",engine: "ez20x",volume: 2,power: 140}, 
+    {producer:"subaru",model: "impreza",year: 2014, color:"red",type: "sedan",engine: "ej204x",volume: 2,power: 200}, 
+    {producer:"subaru",model: "outback",year: 2014, color:"red",type: "hachback",engine: "ej204",volume: 2,power: 165}, 
+    {producer:"bmw",model: "115",year: 2013, color:"red",type: "hachback",engine: "f15",volume: 1.5,power: 120}, 
+    {producer:"bmw",model: "315",year: 2010, color:"white",type: "sedan",engine: "f15",volume: 1.5, power: 120}, 
+    {producer:"bmw",model: "650",year: 2009, color:"black",type: "coupe",engine: "f60",volume: 6,power: 350}, 
+    {producer:"bmw",model: "320",year: 2012, color:"red",type: "sedan",engine: "f20",volume: 2,power: 180}, 
+    {producer:"mercedes",model: "e200",year: 1990, color:"silver",type: "sedan",engine: "eng200",volume: 2,power: 180}, 
+    {producer:"mercedes",model: "e63",year: 2017, color:"yellow",type: "sedan",engine: "amg63",volume:3,power: 400}, 
+    {producer:"mercedes",model: "c250",year: 2017, color:"red",type: "sedan",engine: "eng25",volume: 2.5,power: 230}
+];
 // Відфільтрувати масив за наступними крітеріями :
 // - двигун більше 3х літрів
 // - двигун = 2л
@@ -210,3 +231,17 @@ let users = [
 // Answer: MinIndex = 0, MaxIndex = 0.
 // 2. Key = 4
 // Answer: MinIndex = 3, MaxIndex = 6.
+
+let arr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 14];
+
+function finder (number, arr) {
+    let minIndex = arr.indexOf(number);
+    let maxIndex = arr.lastIndexOf(number);
+
+    console.log("minIndex = " + minIndex);
+    console.log("maxIndex = " + maxIndex);
+}
+
+finder(1, arr);
+finder(4, arr);
+
