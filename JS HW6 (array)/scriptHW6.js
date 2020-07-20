@@ -412,20 +412,42 @@ let arrCars = [
 
 let arrCars1 = JSON.parse(JSON.stringify(arrCars));
 
-let mappedCars = arrCars.map(i => i.hp * 1.1);
-for (let i = 0; i < arrCars1.length / 2; i++) {
-
-    console.log(mappedCars);
-    
-}
-// console.log(mappedCars);
-// console.log(arrCars1);
-
-// let mappedArr20 = arr20.map(a => (a * 3));
-// console.log(mappedArr20);
+let carPower = arrCars1.map((car, index) => {
+    if (index < (arrCars1.length/2)) {
+        
+            car.hp *= 1.1;
+            
+            console.log(car.model, car.hp);
+            return car; 
+    }   
+})
 
 
 // На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій).
+
+let arrCars2 = JSON.parse(JSON.stringify(arrCars));
+
+let carDriver = arrCars2.map((driver, index) => {
+    if (index < (arrCars1.length/2)) {
+        
+            driver.owner.name += "new";
+            
+            console.log(driver.model, driver.owner.name);
+            return driver; 
+    }   
+})
+
+arr20.forEach(a => console.log(a));
+
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+
+// expected output: "a"
+// expected output: "b"
+// expected output: "c"
+
+
 // Для початку вкладіть всі наші створені автомобілі в масив cars.
 // Далі необхідно рати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
 // Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
