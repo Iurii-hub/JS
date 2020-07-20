@@ -162,7 +162,11 @@ console.log(usersNew2)
 
 // -- наисать функцию калькулятора с 2мя числами и колбеком
 
+
+
+
 // -- наисать функцию калькулятора с 3мя числами и колбеком
+
 
 
 
@@ -387,7 +391,35 @@ console.log(usersNumber2);
 // Власник автомобіля теж має бути обєкт, у якого є поля
 // Імя, вік, стаж водіння.
 // Створити не менше 7 та не більше 20 машинок.
+
+let arrCars = [
+    {model: "acura", hp: 230, owner: {name: "driver1", age: 32, driveExp: 12}, cost: 21226, year: 2020},
+    {model: "bmw", hp: 339, owner: {name: "driver2", age: 38, driveExp: 17}, cost: 6500, year: 1995},
+    {model: "citroen", hp: 130, owner: {name: "driver3", age: 26, driveExp: 4}, cost: 4565, year: 2010},
+    {model: "dodge", hp: 90, owner: {name: "driver4", age: 67, driveExp: 41}, cost: 2176, year: 1988},
+    {model: "ford", hp: 67, owner: {name: "driver5", age: 55, driveExp: 33}, cost: 7844, year: 2001},
+    {model: "kia", hp: 111, owner: {name: "driver6", age: 18, driveExp: 1}, cost: 876, year: 1990},
+    {model: "mazda", hp: 256, owner: {name: "driver7", age: 32, driveExp: 12}, cost: 32000, year: 2016},
+    {model: "lincoln", hp: 432, owner: {name: "driver8", age: 22, driveExp: 4}, cost: 44000, year: 2010},
+];
+
 // Зробили половину автопарку ремонт мотору, що збільшить потужність автомобілів на 10% (переприсвоєння змінної потужності).
+
+let arrCars1 = JSON.parse(JSON.stringify(arrCars));
+
+let mappedCars = arrCars.map(i => i.hp * 1.1);
+for (let i = 0; i < arrCars1.length / 2; i++) {
+
+    console.log(mappedCars);
+    
+}
+// console.log(mappedCars);
+// console.log(arrCars1);
+
+// let mappedArr20 = arr20.map(a => (a * 3));
+// console.log(mappedArr20);
+
+
 // На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій).
 // Для початку вкладіть всі наші створені автомобілі в масив cars.
 // Далі необхідно рати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
