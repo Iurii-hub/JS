@@ -32,7 +32,7 @@ console.log(arr20);
 //         return true
 //     }
 // })
-let filteredArr20 = arr20.filter((a) => (a % 3 === 0));
+let filteredArr20 = arr20.filter((a) => (a % 3 === 0 && a !== 0));
 
 console.log(filteredArr20);
 
@@ -42,7 +42,7 @@ console.log(filteredArr20);
 // let filteredArr20new = arr20.filter((a) => {
 //     return (a % 10 === 0)
 // })
-let filteredArr20new = arr20.filter((a) => !(a % 10));
+let filteredArr20new = arr20.filter((a) => (a % 10 === 0 && a !== 0));
 console.log(filteredArr20new);
 
 
@@ -117,13 +117,16 @@ let users = [
 // users.sort((a, b) => a.age - b.age);
 // console.log(users);
 
-users.sort((a, b) => b.age - a.age);
-console.log(users);
+// users.sort((a, b) => b.age - a.age);
+// console.log(users);
 
 
 // - відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
 
-// let filteredUsers = users.filter((a, b) => a.name.length < b.name.length);
+// users.sort((a, b) => a.name.length - b.name.length);
+// console.log(users);
+
+// users.sort((a, b) => b.name.length - a.name.length);
 // console.log(users);
 
 
@@ -132,14 +135,17 @@ console.log(users);
 // та зберегти це в новий масив (первинний масив залишиться без змін)
 
 let usersNew = [];
-usersNew.push(users);
+for (let i = 0; i < users.length; i++) {
+    usersNew.push(users[i]);  
+}
+
 usersNew.map((user, id) => {
     user.id = id + 1;
 
-    return user;
-    
+    return user; 
 });
 
+console.log(users);
 console.log(usersNew);
 
 
@@ -234,14 +240,32 @@ let cars = [
 
 let arr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 14];
 
-function finder (number, arr) {
-    let minIndex = arr.indexOf(number);
-    let maxIndex = arr.lastIndexOf(number);
+// function finder (number, arr) {
+//     let minIndex = arr.indexOf(number);
+//     let maxIndex = arr.lastIndexOf(number);
 
-    console.log("minIndex = " + minIndex);
-    console.log("maxIndex = " + maxIndex);
+//     console.log("minIndex = " + minIndex);
+//     console.log("maxIndex = " + maxIndex);
+// }
+
+// finder(1, arr);
+// finder(4, arr);
+
+function finder(arr, number) {
+    let min = null;
+    let max = null;
+    for (let index = 0; index < arr.length; index++) {
+        if (arr[index] === number) {
+            if (!min) {
+                min = index;
+            }
+            max = index;
+        }
+    }
+    min !== null 
+        ? console.log(`minIndex = ${min} maxIndex = ${max}`) 
+        : console.log(-1);
 }
 
-finder(1, arr);
-finder(4, arr);
+finder(arr, 4);
 
