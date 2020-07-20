@@ -48,8 +48,7 @@ console.log(filteredArr20new);
 
 // -- перебрать (проитерировать) массив при помощи foreach()
 
-arr20.forEach(a => (a));
-console.log(arr20);
+arr20.forEach(a => console.log(a));
 
 
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут в 3 раза больше
@@ -60,29 +59,35 @@ console.log(mappedArr20);
 
 // - создать массив со словами на 15-20 элементов.
 
-let arrNames = ["Gosha", "Alex", "Max", "Tolya", "Kolya", "Sveta", "Tanya", "Nura", "Paul", "David", "Nick", "Anton", "Roma", "Dima", "Valera", "Bogdan"];
+let arrNames = ["gosha", "Alex", "max", "Tolya", "Kolya", "Sveta", "tanya", "Nura", 
+"paul", "David", "Nick", "Anton", "Roma", "Dima", "Valera", "bogdan"];
 
 
 // -- отсортировать его по алфавиту в восходящем порядке.
 
-// arrNames.sort((a, b) => {
-//     if (a < b) {
-//         return - 1
-//     } 
-// })
+// arrNames.sort();
 // console.log(arrNames)
-arrNames.sort();
+
+arrNames.sort((a, b) => {
+    if (a.toLowerCase() < b.toLowerCase()) {
+        return - 1
+    }
+    return 1
+})
 console.log(arrNames)
+
 
 // -- отсортировать его по алфавиту  в нисходящем порядке.
 
-arrNames.sort((a, b) => {
-    if (a < b) {
-        return 1
-    }
-    return - 1
-})
-console.log(arrNames)
+
+// arrNames.sort((a, b) => {
+//     if (a.toLowerCase() < b.toLowerCase()) {
+//         return 1
+//     }
+//     return - 1
+// })
+// console.log(arrNames)
+
 
 
 // -- отфильтровать слова длиной менее 4х символов
