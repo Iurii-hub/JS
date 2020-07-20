@@ -195,12 +195,39 @@ console.log(carsVolumeMore3);
 
 // - двигун = 2л
 
-const
+const carsVolumeEq2 = cars.filter(a => a.volume === 2);
+console.log(carsVolumeEq2);
+
+
 // - виробник мерс
+
+const carsProdMerc = cars.filter(a => a.producer === "mercedes");
+console.log(carsProdMerc);
+
+
 // - двигун більше 3х літрів + виробник мерседес
+
+const carsProdMercVolMore3 = cars.filter(a => a.producer === "mercedes" && a.volume > 3);
+console.log(carsProdMercVolMore3);
+
+
 // - двигун більше 3х літрів + виробник субару
+
+const carsProdSubVolMore3 = cars.filter(a => a.producer === "subaru" && a.volume > 3);
+console.log(carsProdSubVolMore3);
+
+
 // - сили більше ніж 300
+
+const carsPowerMore300 = cars.filter(a => a.power > 300);
+console.log(carsPowerMore300);
+
+
 // - сили більше ніж 300 + виробник субару
+
+
+
+
 // - мотор серіі ej
 
 
