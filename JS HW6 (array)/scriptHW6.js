@@ -260,19 +260,122 @@ console.log(carsProdBmwPowMore250);
 
 
 // - взять слдующий массив
-// let usersWithAddress = [{id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}}, {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}}, {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}, {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 90}}, {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}}, {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}}, {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 22}}, {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}}, {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 12}}, {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}}, {id: 11, name: 'max', age: 31, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}];
+let usersWithAddress = [
+    {id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}}, 
+    {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}}, 
+    {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}, 
+    {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 90}}, 
+    {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}}, 
+    {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}}, 
+    {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 22}}, 
+    {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}}, 
+    {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 12}}, 
+    {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}}, 
+    {id: 11, name: 'max', age: 31, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}
+];
+
 // -- отсортировать его по id пользователей
+
+// usersWithAddress.sort((a, b) => a.id - b.id);
+// console.log(usersWithAddress);
+
+
 // -- отсортировать его по id пользователей в обратном опрядке
+
+usersWithAddress.sort((a, b) => b.id - a.id);
+console.log(usersWithAddress);
+
+
 // -- отсортировать его по возрасту пользователей
+
+let usersWithAddress2 = JSON.parse(JSON.stringify(usersWithAddress));
+
+usersWithAddress2.sort((a, b) => a.age - b.age);
+console.log(usersWithAddress2);
+
+
 // -- отсортировать его по возрасту пользователей в обратном порядке
+
+let usersWithAddress3 = JSON.parse(JSON.stringify(usersWithAddress));
+
+usersWithAddress3.sort((a, b) => b.age - a.age);
+console.log(usersWithAddress3);
+
+
 // -- отсортировать его по имени пользователей
+
+let usersWithAddress4 = JSON.parse(JSON.stringify(usersWithAddress));
+
+usersWithAddress4.sort((a, b) => {
+    if (a.name < b.name) {
+        return -1
+    }
+    return 1
+});
+console.log(usersWithAddress4);
+
+
 // -- отсортировать его по имени пользователей в обратном порядке
+
+let usersWithAddress5 = JSON.parse(JSON.stringify(usersWithAddress));
+
+usersWithAddress5.sort((a, b) => {
+    if (a.name > b.name) {
+        return -1
+    }
+    return 1
+});
+console.log(usersWithAddress5);
+
+
 // -- отсортировать его по названию улицы  в алфавитном порядке
+
+let usersWithAddress6 = JSON.parse(JSON.stringify(usersWithAddress));
+
+usersWithAddress6.sort((a, b) => {
+    if (a.address.street < b.address.street) {
+        return -1
+    }
+    return 1
+});
+console.log(usersWithAddress6);
+
+
 // -- отсортировать его по номеру дома по возрастанию
+
+let usersWithAddress7 = JSON.parse(JSON.stringify(usersWithAddress));
+
+usersWithAddress7.sort((a, b) => {
+    if (a.address.number < b.address.number) {
+        return -1
+    }
+    return 1
+});
+console.log(usersWithAddress7);
+
+
 // -- отфильтровать (оставить) тех кто младше 30
+
+let usersYounger30 = usersWithAddress.filter(a => a.age < 30);
+console.log(usersYounger30);
+
+
 // -- отфильтровать (оставить) тех у кого отрицательный статус
+
+let usersFalse = usersWithAddress.filter(a => a.status === false);
+console.log(usersFalse);
+
+
 // -- отфильтровать (оставить) тех у кого отрицательный статус и младше 30 лет
+
+let usersFalseYounger30 = usersWithAddress.filter(a => a.status === false && a.age < 30);
+console.log(usersFalseYounger30);
+
+
 // -- отфильтровать (оставить) тех у кого номер дома четный
+
+let usersNumber2 = usersWithAddress.filter(a => a.address.number % 2 === 0);
+console.log(usersNumber2);
 
 
 // ===========================
@@ -290,6 +393,7 @@ console.log(carsProdBmwPowMore250);
 // Далі необхідно рати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
 // Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
 // Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі
+
 
 
 // Задача: дан отсортированный по возрастанию массив целых чисел. Необходимо вернуть наименьший и наибольший индекс заданного элемента.
