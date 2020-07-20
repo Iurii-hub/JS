@@ -225,17 +225,38 @@ console.log(carsPowerMore300);
 
 // - сили більше ніж 300 + виробник субару
 
-
+const carsPowerMore300Sub = cars.filter(a => a.power > 300 && a.producer === "subaru");
+console.log(carsPowerMore300Sub);
 
 
 // - мотор серіі ej
 
+const carsEngEj = cars.filter(a => a.engine.startsWith("ej"));
+console.log(carsEngEj);
+
 
 // - сили більше ніж 300 + виробник субару + мотор серіі ej
+
+const carsEngEjPowMore300 = cars.filter(a => a.engine.startsWith("ej") && a.power > 300);
+console.log(carsEngEjPowMore300);
+
+
 // - двигун меньше 3х літрів + виробник мерседес
+
+const carsMercEngVolLess3 = cars.filter(a => a.producer === "mercedes" && a.engine < 3);
+console.log(carsMercEngVolLess3);
+
+
 // - двигун більше 2л + сили більше 250
+
+const carsEngMore250VolMore2 = cars.filter(a => a.volume > 2 && a.power > 250);
+console.log(carsEngMore250VolMore2);
+
+
 // - сили більше 250  + виробник бмв
 
+const carsProdBmwPowMore250 = cars.filter(a => a.producer === "bmw" && a.power > 250);
+console.log(carsProdBmwPowMore250);
 
 
 // - взять слдующий массив
