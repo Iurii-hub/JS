@@ -93,7 +93,13 @@ console.log(filteredNames);
 
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
 
-let mappedArrNames = arrNames.map(a => a + "!");
+// let mappedArrNames = arrNames.map(a => a + "!");
+// console.log(mappedArrNames);
+
+let mappedArrNames = arrNames.map(a => {
+    a = a + "!";
+    return a
+})
 console.log(mappedArrNames);
 
 
@@ -134,10 +140,7 @@ let users = [
 // (По якому принципу його створювати - ваше рішення), 
 // та зберегти це в новий масив (первинний масив залишиться без змін)
 
-let usersNew = [];
-for (let i = 0; i < users.length; i++) {
-    usersNew.push(users[i]);  
-}
+let usersNew = JSON.parse(JSON.stringify(users));
 
 usersNew.map((user, id) => {
     user.id = id + 1;
@@ -151,9 +154,17 @@ console.log(usersNew);
 
 // - відсортувати його за індентифікатором
 
+let usersNew2 = JSON.parse(JSON.stringify(usersNew));
+
+usersNew2.sort((a, b) => b.id - a.id)
+console.log(usersNew2)
+
 
 // -- наисать функцию калькулятора с 2мя числами и колбеком
+
 // -- наисать функцию калькулятора с 3мя числами и колбеком
+
+
 
 // =============================================
 // =============================================
@@ -178,7 +189,13 @@ let cars = [
 ];
 // Відфільтрувати масив за наступними крітеріями :
 // - двигун більше 3х літрів
+
+const carsVolumeMore3 = cars.filter(a => a.volume > 3);
+console.log(carsVolumeMore3);
+
 // - двигун = 2л
+
+const
 // - виробник мерс
 // - двигун більше 3х літрів + виробник мерседес
 // - двигун більше 3х літрів + виробник субару
