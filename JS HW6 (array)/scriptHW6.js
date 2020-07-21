@@ -405,7 +405,7 @@ let arrCars = [
     {model: "ford", hp: 67, owner: {name: "driver5", age: 55, driveExp: 33}, cost: 7844, year: 2001},
     {model: "kia", hp: 111, owner: {name: "driver6", age: 18, driveExp: 1}, cost: 876, year: 1990},
     {model: "mazda", hp: 256, owner: {name: "driver7", age: 32, driveExp: 12}, cost: 32000, year: 2016},
-    {model: "lincoln", hp: 432, owner: {name: "driver8", age: 22, driveExp: 4}, cost: 44000, year: 2010},
+    {model: "lincoln", hp: 432, owner: {name: "driver8", age: 27, driveExp: 4}, cost: 44000, year: 2010},
 ];
 
 // Зробили половину автопарку ремонт мотору, що збільшить потужність автомобілів на 10% (переприсвоєння змінної потужності).
@@ -417,43 +417,92 @@ let carPower = arrCars1.map((car, index) => {
         
             car.hp *= 1.1;
             
-            console.log(car.model, car.hp);
+    
+            console.log(car.model, "hp " + car.hp);
             return car; 
     }   
 })
+console.log(arrCars1);
 
 
 // На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій).
 
-let arrCars2 = JSON.parse(JSON.stringify(arrCars));
+let arrDriver = [
+    {name: "new1", age: 42, driveExp: 22},
+    {name: "new2", age: 52, driveExp: 32},
+    {name: "new3", age: 62, driveExp: 42},
+    {name: "new4", age: 72, driveExp: 52},
+]
 
-let carDriver = arrCars2.map((driver, index) => {
+arrCars1.forEach((a, index) => {
+
     if (index < (arrCars1.length/2)) {
         
-            driver.owner.name += "new";
-            
-            console.log(driver.model, driver.owner.name);
-            return driver; 
+        a.owner = arrDriver[index];
+    
+        // console.log(a.owner);
+        return a.owner; 
     }   
-})
+});
 
-arr20.forEach(a => console.log(a));
-
-const array1 = ['a', 'b', 'c'];
-
-array1.forEach(element => console.log(element));
-
-// expected output: "a"
-// expected output: "b"
-// expected output: "c"
+console.log(arrCars1);
 
 
 // Для початку вкладіть всі наші створені автомобілі в масив cars.
 // Далі необхідно рати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
-// Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
+
+let arrCars3 = arrCars;
+
+let carPower3 = arrCars3.map((car, index) => {
+    if (index % 2 === 0) {
+        
+            car.hp *= 1.1;
+            car.cost *=1.05;
+            
+    
+            console.log(car.model, "hp " + car.hp, "cost " + car.cost);
+            return car; 
+    }   
+})
+console.log(arrCars3);
+
+
+// Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, 
+// що збільшить йому досвід на 1 рік.
+
+let driveExpAge = arrCars3;
+driveExpAge.forEach(a => {
+    if (a.owner.driveExp < 5 && a.owner.age > 25) {
+        console.log(a.owner.name + " відправити на курси підвищення кваліфікації");
+        a.owner.driveExp +=1;
+        console.log(a.owner.driveExp);
+    
+    }
+})
+console.log(driveExpAge);
+
+
 // Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі
 
+let totalCarCost = arrCars3.reduce((accumulator, currentValue) => {
+    // console.log(accumulator.cost);
+    // console.log(currentValue.cost);
+    return accumulator + currentValue.cost
+}, 0);
 
+console.log(totalCarCost);
+
+
+// const array1 = [1, 2, 3, 4];
+// const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// // 1 + 2 + 3 + 4
+// console.log(array1.reduce(reducer));
+// // expected output: 10
+
+// // 5 + 1 + 2 + 3 + 4
+// console.log(array1.reduce(reducer, 5));
+// // expected output: 15
 
 // Задача: дан отсортированный по возрастанию массив целых чисел. Необходимо вернуть наименьший и наибольший индекс заданного элемента.
 // Входные данные: arr — массив целых чисел значения которых по модулю не больше 10. Размер массива не более 10 элементов.
