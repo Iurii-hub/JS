@@ -23,7 +23,7 @@ btnH.onclick = (event) => {
 // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
 
 const btnConfirm = document.getElementById("buttonAge");
-personAge.value = "17";
+// personAge.value = "17";
 
 btnConfirm.onclick = (event) => {
     const ageInput = document.getElementById("personAge");
@@ -134,6 +134,32 @@ createTable(8, 4, elem);
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 
+// const elemNew = document.querySelector(`#elem`);
+// const btnTypeNew = document.getElementById("btnTypeNew");
+// const inputNew1 = document.getElementById("typeNew1");
+// const inputNew2 = document.getElementById("typeNew2");
+// const inputNew3 = document.getElementById("typeNew3");
+
+// function createTableNew(rows, cols, contentNew) {
+//     let table = document.createElement("table");
+    
+
+//     for (let i = 0; i < rows; i++) {
+//         let tr = document.createElement("tr");
+
+//         for (let j = 0; j < cols; j++) {
+//             let td = document.createElement("td");
+//             td.innerText = i.toString() + j.toString();
+//             tr.appendChild(td);
+//         }
+//         table.appendChild(tr);
+//     }
+//     contentNew.appendChild(table);
+// }
+
+// btnTypeNew.onclick = (event) => {
+//     createTableNew(inputNew1, inputNew2, inputNew3, elemNew);
+// } //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
@@ -148,12 +174,12 @@ createTable(8, 4, elem);
 // кинути алерт з попередженням.
 // Перевірку робити при натисканні на кнопку
 
-
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
 // Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 // Кинути алерт з попередженням у випадку якщо містить.
 // Перевірку робити при натисканні на кнопку
+
 
 
 
