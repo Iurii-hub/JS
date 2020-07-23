@@ -2,18 +2,64 @@ console.log("test");
 
 // - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
 
-let element1 = document.createElement
+
+const btnT = document.getElementById("buttonText");
+const elemT = document.getElementById("text");
+
+btnT.onclick = (event) => {
+    elemT.hidden
+    ? elemT.hidden = false
+    : elemT.hidden = true
+}
 
 
 // - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
 
+const btnH = document.getElementById("buttonHide");
+btnH.onclick = (event) => {
+    btnH.hidden = true
+}
+
 // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
 
+const btnConfirm = document.getElementById("buttonAge");
+personAge.value = "17";
+
+btnConfirm.onclick = (event) => {
+    const ageInput = document.getElementById("personAge");
+    const value = personAge.value;
+    console.log(value);
+    if (value < 18) {
+        alert("Access denied")  
+    } else {
+        alert("Welcome mate")
+    }
+}
+
+
 // - Создайте меню, которое раскрывается/сворачивается при клике
+
+const menu = document.getElementById("menu");
+const submenu = document.getElementById("submenu");
+
+let flag = "";
+menu.onclick = (event) => {
+    if (flag) {
+        submenu.style.display = "block";
+        flag = false;
+    } else {
+        submenu.style.display = "none";
+        flag = true;
+    }
+}
+
 
 // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 // Вывести список комментариев в документ, каждый в своем блоке.
 //  Добавьте каждому комментарию по кнопке для сворачивания его body.
+
+
+
 
 // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
 // Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
