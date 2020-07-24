@@ -270,7 +270,63 @@ let usersWithAddress = [
 // 3й - оставляет тех у кого город киев
 // Данные выводить в документ
 
+const userAddress = document.getElementById("userAddress");
+const userDiv = document.createElement("div");
+userDiv.className = "user";
+userDiv.appendChild(renderContent(usersWithAddress));
 
+const input1 = document.createElement("input");
+const input2 = document.createElement("input");
+const input3 = document.createElement("input");
+
+const label1 = document.createElement("label");
+const label2 = document.createElement("label");
+const label3 = document.createElement("label");
+
+const buttonAddress = document.createElement("button");
+
+label1.innerText = "со статусом false";
+label2.innerText = "старше 29 лет включительно";
+label3.innerText = "город киев";
+
+buttonAddress.innerText = "Filter";
+
+input1.type = "checkbox";
+input2.type = "checkbox";
+input3.type = "checkbox";
+
+userAddress.appendChild(userDiv);
+
+userAddress.appendChild(label1);
+userAddress.appendChild(input1);
+userAddress.appendChild(label2);
+userAddress.appendChild(input2);
+userAddress.appendChild(label3);
+userAddress.appendChild(input3);
+
+userAddress.appendChild(buttonAddress);
+
+buttonAddress.onclick = (event) => {
+    let myArray = JSON.parse(JSON.stringify(usersWithAddress));
+
+    if (input1.checked) myArray = myArray.filter(value => !value.status);
+    if (input2.checked) myArray = myArray.filter(value => value.age >= 29);
+    if (input3.checked) myArray = myArray.filter(value => value.address.city === "Kyiv");
+
+    userDiv.innerHTML = "";
+    userDiv.appendChild(renderContent(myArray));
+}
+
+
+function renderContent(array) {
+    const main = document.createElement("div");
+    array.forEach(item => {
+        const div = document.createElement("div");
+        div.innerHTML = JSON.stringify(item);
+        main.appendChild(div);
+    })
+    return main;
+}
 
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
