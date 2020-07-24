@@ -167,6 +167,46 @@ createTable(8, 4, elem);
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 
+let arrImg = [
+    {id: 1, img_url: "pic/tiggo1.jpg"},
+    {id: 2, img_url: "pic/tiggo2.jpg"},
+    {id: 3, img_url: "pic/tiggo3.jpg"},
+    {id: 4, img_url: "pic/tiggo4.jpg"},
+];
+
+const contentP = document.getElementById("pictures");
+const img = document.createElement("img");
+const btnLeft = document.createElement("button");
+const btnRight = document.createElement("button");
+
+btnLeft.innerText = "Left";
+btnRight.innerText = "Right";
+
+let index = 0;
+
+img.width = 400;
+img.src = arrImg[index].img_url;
+
+contentP.appendChild(img);
+contentP.appendChild(btnLeft);
+contentP.appendChild(btnRight);
+
+btnLeft.onclick = () => {
+    index - 1 < 0
+        ? index = arrImg.length - 1
+        : index = index - 1
+
+    img.src = arrImg[index].img_url
+};
+
+btnRight.onclick = () => {
+    index + 1 > arrImg.length - 1 
+        ? index = 0
+        : index = index + 1
+
+    img.src = arrImg[index].img_url
+}
+
 
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
@@ -185,6 +225,30 @@ createTable(8, 4, elem);
 
 // -- создать скрипт, который берет считывает на странице (rules.html) текст и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
 // При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
+
+const arrHeads = document.getElementsByTagName("h2");
+const contentRules = document.getElementById("contentRules");
+const wrap = document.getElementById("wrap");
+const ul = document.createElement("ul");
+
+for (let i = 0; i < arrHeads.length; i++) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    
+    let anchor = "anchor" + i;
+    a.href = "#" + anchor;
+    arrHeads[i].setAttribute("id", anchor);
+    a.innerHTML = arrHeads[i].innerText;
+    li.appendChild(a);
+    ul.appendChild(li);
+}
+
+contentRules.appendChild(ul);
+contentRules.style.width = "40%";
+wrap.style.width = "60%";
+contentRules.style.float = "left";
+wrap.style.float = "left";
+
 
 // -- взять массив пользователей
 let usersWithAddress = [
@@ -205,6 +269,7 @@ let usersWithAddress = [
 // 2й - оставляет старше 29 лет включительно
 // 3й - оставляет тех у кого город киев
 // Данные выводить в документ
+
 
 
 
