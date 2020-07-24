@@ -134,11 +134,11 @@ createTable(8, 4, elem);
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 
-// const elemNew = document.querySelector(`#elem`);
-// const btnTypeNew = document.getElementById("btnTypeNew");
-// const inputNew1 = document.getElementById("typeNew1");
-// const inputNew2 = document.getElementById("typeNew2");
-// const inputNew3 = document.getElementById("typeNew3");
+const elemNew = document.querySelector(`#elem`);
+const btnTypeNew = document.getElementById("btnTypeNew");
+const inputNew1 = document.getElementById("typeNew1");
+const inputNew2 = document.getElementById("typeNew2");
+const inputNew3 = document.getElementById("typeNew3");
 
 // function createTableNew(rows, cols, contentNew) {
 //     let table = document.createElement("table");
