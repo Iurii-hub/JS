@@ -8,8 +8,8 @@ const elemT = document.getElementById("text");
 
 btnT.onclick = (event) => {
     elemT.hidden
-    ? elemT.hidden = false
-    : elemT.hidden = true
+        ? elemT.hidden = false
+        : elemT.hidden = true
 }
 
 
@@ -20,7 +20,8 @@ btnH.onclick = (event) => {
     btnH.hidden = true
 }
 
-// - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+// - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити 
+// вік чи меньше він ніж 18, та повідомити про це користувача
 
 const btnConfirm = document.getElementById("buttonAge");
 // personAge.value = "17";
@@ -30,7 +31,7 @@ btnConfirm.onclick = (event) => {
     const value = personAge.value;
     console.log(value);
     if (value < 18) {
-        alert("Access denied")  
+        alert("Access denied")
     } else {
         alert("Welcome mate")
     }
@@ -59,10 +60,10 @@ menu.onclick = (event) => {
 //  Добавьте каждому комментарию по кнопке для сворачивания его body.
 
 let commentsArr = [
-    {title : 'user 1', body:'lorem ipsum dolo sit ameti'},
-    {title : 'user 2', body:'lorem ipsum dolo sit ameti'},
-    {title : 'user 3', body:'lorem ipsum dolo sit ameti'},
-    {title : 'user 4', body:'lorem ipsum dolo sit ameti'}
+    { title: 'user 1', body: 'lorem ipsum dolo sit ameti' },
+    { title: 'user 2', body: 'lorem ipsum dolo sit ameti' },
+    { title: 'user 3', body: 'lorem ipsum dolo sit ameti' },
+    { title: 'user 4', body: 'lorem ipsum dolo sit ameti' }
 ];
 
 let content = document.getElementById("content");
@@ -71,14 +72,14 @@ commentsArr.forEach(item => {
     const h3 = document.createElement("h3");
     const p = document.createElement("p");
     const btnCom = document.createElement("button");
-    
+
     btnCom.innerText = "hide comment";
     h3.innerText = item.title;
     p.innerText = item.body;
     btnCom.onclick = (event) => {
         p.hidden
-        ? p.hidden = false
-        : p.hidden = true
+            ? p.hidden = false
+            : p.hidden = true
     }
 
     div.appendChild(h3);
@@ -134,32 +135,72 @@ createTable(8, 4, elem);
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 
-const elemNew = document.querySelector(`#elem`);
-const btnTypeNew = document.getElementById("btnTypeNew");
-const inputNew1 = document.getElementById("typeNew1");
-const inputNew2 = document.getElementById("typeNew2");
-const inputNew3 = document.getElementById("typeNew3");
+let elemNew = document.querySelector(`#elemNew`);
+let btnTypeNew = document.getElementById("btnTypeNew");
+let inputNew1 = document.getElementById("typeNew1");
+let inputNew2 = document.getElementById("typeNew2");
+let inputNew3 = document.getElementById("typeNew3");
 
-// function createTableNew(rows, cols, contentNew) {
+function createTableNew(rows, cols, contentNew) {
+    let table = document.createElement("table");
+
+    rows = document.getElementById("typeNew1").value;
+    cols = document.getElementById("typeNew2").value;
+    contentNew = document.getElementById("typeNew3").value;
+
+    for (let i = 0; i < rows; i++) {
+        let tr = document.createElement("tr");
+
+        for (let j = 0; j < cols; j++) {
+            let td = document.createElement("td");
+            td.innerText = contentNew;
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+    elemNew.appendChild(table);
+}
+
+btnTypeNew.onclick = (event) => {
+
+    createTableNew(inputNew1, inputNew2, inputNew3);
+}
+
+// let elemNew = document.querySelector(`#elemNew`);
+// let btnTypeNew = document.getElementById("btnTypeNew");
+// let inputNew1 = document.getElementById("typeNew1");
+// let inputNew2 = document.getElementById("typeNew2");
+// let inputNew3 = document.getElementById("typeNew3");
+
+// function createTableNew(rows, cells, contentNew) {
 //     let table = document.createElement("table");
-    
+
+//     rows = document.getElementById("typeNew1").value;
+//     cells = document.getElementById("typeNew2").value;
+//     contentNew = document.getElementById("typeNew3").value;
 
 //     for (let i = 0; i < rows; i++) {
 //         let tr = document.createElement("tr");
 
-//         for (let j = 0; j < cols; j++) {
+//         for (let j = 0; j < cells / rows; j++) {
 //             let td = document.createElement("td");
-//             td.innerText = i.toString() + j.toString();
-//             tr.appendChild(td);
+
+//             if ((i + 1) * (j + 1) < cells) {
+//                 td.innerText = contentNew
+//             } else {
+//                 td.innerText = " "
+//                 }
+//                 tr.appendChild(td);
 //         }
 //         table.appendChild(tr);
 //     }
-//     contentNew.appendChild(table);
+//     elemNew.appendChild(table);
 // }
 
 // btnTypeNew.onclick = (event) => {
-//     createTableNew(inputNew1, inputNew2, inputNew3, elemNew);
-// } //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+//     createTableNew(inputNew1, inputNew2, inputNew3);
+// }
 
 
 
@@ -168,10 +209,10 @@ const inputNew3 = document.getElementById("typeNew3");
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 
 let arrImg = [
-    {id: 1, img_url: "pic/tiggo1.jpg"},
-    {id: 2, img_url: "pic/tiggo2.jpg"},
-    {id: 3, img_url: "pic/tiggo3.jpg"},
-    {id: 4, img_url: "pic/tiggo4.jpg"},
+    { id: 1, img_url: "pic/tiggo1.jpg" },
+    { id: 2, img_url: "pic/tiggo2.jpg" },
+    { id: 3, img_url: "pic/tiggo3.jpg" },
+    { id: 4, img_url: "pic/tiggo4.jpg" },
 ];
 
 const contentP = document.getElementById("pictures");
@@ -200,7 +241,7 @@ btnLeft.onclick = () => {
 };
 
 btnRight.onclick = () => {
-    index + 1 > arrImg.length - 1 
+    index + 1 > arrImg.length - 1
         ? index = 0
         : index = index + 1
 
@@ -220,7 +261,37 @@ btnRight.onclick = () => {
 // Кинути алерт з попередженням у випадку якщо містить.
 // Перевірку робити при натисканні на кнопку
 
+let arrBadWords = ["bad1", "bad2", "bad3", "bad4", "bad5"];
+let inputBw = document.createElement("input");
+const btnBw = document.createElement("button");
 
+btnBw.innerText = "Check";
+
+const divBw = document.getElementById("badWords");
+divBw.appendChild(inputBw);
+divBw.appendChild(btnBw);
+
+inputBw.id = "wordId";
+
+function getCheckBadWord() {
+    let inp = document.querySelector("#wordId");
+    console.log(inp.value); 
+
+    let inpArr = inp.value.split(" ")
+
+for (let j = 0; j < inpArr.length; j++) {
+    for (let i = 0; i < arrBadWords.length; i++) {  
+        if (inpArr[j] === arrBadWords[i]) {
+            alert("Warning, such word is not allowed")
+        }
+    }    
+}
+   
+}
+
+btnBw.onclick = (event) => {
+    getCheckBadWord()
+}
 
 
 // -- создать скрипт, который берет считывает на странице (rules.html) текст и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
@@ -234,7 +305,7 @@ const ul = document.createElement("ul");
 for (let i = 0; i < arrHeads.length; i++) {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    
+
     let anchor = "anchor" + i;
     a.href = "#" + anchor;
     arrHeads[i].setAttribute("id", anchor);
@@ -252,18 +323,18 @@ wrap.style.float = "left";
 
 // -- взять массив пользователей
 let usersWithAddress = [
-                {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-                {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-                {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-                {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-                {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-                {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-                {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-                {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-                {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-                {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-                {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
-            ];
+    { id: 1, name: 'vasya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 16 } },
+    { id: 2, name: 'petya', age: 30, status: true, address: { city: 'Kyiv', street: 'Shevchenko', number: 1 } },
+    { id: 3, name: 'kolya', age: 29, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 121 } },
+    { id: 4, name: 'olya', age: 28, status: false, address: { city: 'Ternopil', street: 'Shevchenko', number: 90 } },
+    { id: 5, name: 'max', age: 30, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 115 } },
+    { id: 6, name: 'anya', age: 31, status: false, address: { city: 'Kyiv', street: 'Shevchenko', number: 2 } },
+    { id: 7, name: 'oleg', age: 28, status: false, address: { city: 'Ternopil', street: 'Shevchenko', number: 22 } },
+    { id: 8, name: 'andrey', age: 29, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 43 } },
+    { id: 9, name: 'masha', age: 30, status: true, address: { city: 'Kyiv', street: 'Shevchenko', number: 12 } },
+    { id: 10, name: 'olya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 16 } },
+    { id: 11, name: 'max', age: 31, status: true, address: { city: 'Ternopil', street: 'Shevchenko', number: 121 } }
+];
 // Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
 // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
 // 2й - оставляет старше 29 лет включительно
