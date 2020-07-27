@@ -18,6 +18,38 @@ textArea.oninput = (event) => {
 // Сделайте так, чтобы при следующем заходе на страницу введенные им ранее данные стояли на своих местах.
 // Сделайте ваш скрипт как можно более универсальным.
 
+const form = document.getElementById("form");
+getDataForm(form);
+
+function saveForm(t) {
+    setDataForm(t);
+}
+
+
+function setDataForm(tag) {
+    for (let i = 0; i < tag.length; i++) {
+        const tagElement = tag[i];
+        console.log(tagElement);
+        if (tagElement.type === "checkbox" || tagElement.type === "radio")
+        tagElement.checked
+            ? tagElement.value = true
+            : tagElement.value = false
+
+        localStorage.setItem(tagElement.id, tagElement.value)
+        
+    }  
+}
+
+function getDataForm(tag) {
+    for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.hasOwnProperty(tag.children[i].id)) {
+        tag.children[i].value = localStorage.getItem(tag.children[i].id);
+            if (tag.children[i].value === "true") {
+            tag.children[i].setAttribute("checked", "checked");
+            }
+        } 
+    }
+}
 
 
 
