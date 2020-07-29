@@ -61,7 +61,9 @@ const btnRight = document.getElementById("btnRight");
 const textArea3 = document.getElementById("textArea3");
 const inputSave = document.getElementById("inputSave");
 
-
+inputSave.onclick = () => {
+    localStorage.setItem(localStorage.length + 1, textArea3.value);
+}
 
 
 
