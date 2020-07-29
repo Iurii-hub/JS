@@ -52,10 +52,15 @@ function getDataForm(tag) {
 }
 
 
-
 // -Дан текстареа. В него можно ввести данные, нажать кнопку "сохранить" и они "фикисруются" (в хранилище), затем поредактировать их, затем еще поредактировать и возможно еще.....
 // Требование : хранить историю своих изменений (даже после перезагрузки страницы).
 // Сверху над текстареа должны появится стрелочки, с помощью которых можно перемещаться по истории (не забудьте!чекпоинт истории - нажатеи кнопки сохранить).
+
+const btnLeft = document.getElementById("btnLeft");
+const btnRight = document.getElementById("btnRight");
+const textArea3 = document.getElementById("textArea3");
+const inputSave = document.getElementById("inputSave");
+
 
 
 
