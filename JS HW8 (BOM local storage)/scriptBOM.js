@@ -76,25 +76,22 @@ inputSave.onclick = () => {
 
 let noteBook = [
         {
-          id: 1,
           name: "Leanne Graham",
           email: "Sincere@april.biz",
-          phone: "1-770-736-8031 x56442",
+          phone: "1-770-736-8031",
           company: "Romaguera-Crona",
           department: "harness real-time e-markets",
           birth: "13 Jun 1994",
         },
         {
-          id: 2,
           name: "Ervin Howell",
           email: "Shanna@melissa.tv",
-          phone: "010-692-6593 x09125",
+          phone: "010-692-6593",
           company: "Deckow-Crist",
           department: "synergize scalable supply-chains",
           birth: "10 Jul 1974",
         },
         {
-          id: 3,
           name: "Clementine Bauch",
           email: "Nathan@yesenia.net",
           phone: "1-463-123-4447",
@@ -104,17 +101,70 @@ let noteBook = [
         },
 ]
 
-noteBook.forEach(({id, name, email, phone, company, department, birth}) => {
-    let userDiv = document.createElement("div");
-    userDiv.innerText = 'Name ${user.name}'
-})
-let name = document.getElementById("name");
-let phone = document.getElementById("phone");
-let email = document.getElementById("email");
-let company = document.getElementById("company");
-let department = document.getElementById("department");
-let birth = document.getElementById("born");
-
-let save = document.getElementById("btnNote");
-
+let nameInput = document.getElementById("name");
+let phoneInput = document.getElementById("phone");
+let emailInput = document.getElementById("email");
+let companyInput = document.getElementById("company");
+let departmentInput = document.getElementById("department");
+let birthInput = document.getElementById("birth");
+const save = document.getElementById("btnSave");
+const edit = document.getElementById("btnEdit");
 let allUsers = document.getElementById("allUsers");
+
+
+function editor(params) {
+    allUsers.innerHTML = "";
+
+    noteBook.forEach(({name, email, phone, company, department, birth}, index) => {
+        let userDiv = document.createElement("div");
+        userDiv.innerText = `${index + 1}. name: ${name}, email: ${email}, phone: ${phone}, company: ${company}, department: ${department}, birth: ${birth}`;
+    
+        const remove = document.createElement("button");
+        remove.innerText = "Remove";
+        
+        const edit = document.createElement("button");
+        edit.innerText = "Edit";
+        
+
+        remove.onclick = () => {
+            noteBook.splice(index, 1);
+
+            editor();
+        }
+        
+        edit.onclick = () => {
+            editHelper ({name, email, phone, company, department, birth}, index);
+
+        }
+
+
+        userDiv.style.backgroundColor = "lightgreen";
+        allUsers.appendChild(userDiv);
+        userDiv.style.margin = "20px";
+    
+        userDiv.appendChild(remove);
+        userDiv.appendChild(edit);
+    
+    })
+}
+editor()
+
+save.onclick = () => {
+    const name = nameInput.value;
+    const email = emailInput.value;
+    const phone = phoneInput.value;
+    const company = companyInput.value;
+    const department = departmentInput.value;
+    const birth = birthInput.value;
+
+
+    noteBook.push({name, email, phone, company, department, birth});
+
+    editor();
+}
+
+function editHelper({name, email, phone, company, department, birth}, index) {
+    
+
+
+}
