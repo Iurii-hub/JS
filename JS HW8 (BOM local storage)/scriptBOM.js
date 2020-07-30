@@ -73,3 +73,48 @@ inputSave.onclick = () => {
 // --Каждому контакту добавить кнопку для удаления контакта.
 // --Каждому контакту добавить кнопку редактироваиня. При нажати на нее появляется форма, в которой есть все необходимые инпуты для редактирования, которые уже заполнены данными объекта
 
+
+let noteBook = [
+        {
+          id: 1,
+          name: "Leanne Graham",
+          email: "Sincere@april.biz",
+          phone: "1-770-736-8031 x56442",
+          company: "Romaguera-Crona",
+          department: "harness real-time e-markets",
+          birth: "13 Jun 1994",
+        },
+        {
+          id: 2,
+          name: "Ervin Howell",
+          email: "Shanna@melissa.tv",
+          phone: "010-692-6593 x09125",
+          company: "Deckow-Crist",
+          department: "synergize scalable supply-chains",
+          birth: "10 Jul 1974",
+        },
+        {
+          id: 3,
+          name: "Clementine Bauch",
+          email: "Nathan@yesenia.net",
+          phone: "1-463-123-4447",
+          company: "Romaguera-Jacobson",
+          department: "e-enable strategic applications",
+          birth: "22 Jan 1986",
+        },
+]
+
+noteBook.forEach(({id, name, email, phone, company, department, birth}) => {
+    let userDiv = document.createElement("div");
+    userDiv.innerText = 'Name ${user.name}'
+})
+let name = document.getElementById("name");
+let phone = document.getElementById("phone");
+let email = document.getElementById("email");
+let company = document.getElementById("company");
+let department = document.getElementById("department");
+let birth = document.getElementById("born");
+
+let save = document.getElementById("btnNote");
+
+let allUsers = document.getElementById("allUsers");
