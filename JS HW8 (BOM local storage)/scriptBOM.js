@@ -65,7 +65,39 @@ inputSave.onclick = () => {
     localStorage.setItem(localStorage.length + 1, textArea3.value);
 }
 
+btnLeft.onclick = () => {
+    btnRight.style.visibility = "visible";
+    let index;
+    for (const key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+            if (localStorage.getItem(key) === textArea3.value) {
+                index = key;
+            }
+        }
+    }
+    if (index === "1") {
+        btnLeft.style.visibility = "hidden";
+        return;
+    }
+    textArea3.value = localStorage.getItem(index - 1);
+}
 
+btnRight.onclick = () => {
+    btnLeft.style.visibility = "visible";
+    let index;
+    for (const key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+            if (localStorage.getItem(key) === textArea3.value) {
+                index = key;
+            }
+        }
+    }
+    if (index === localStorage.length.toString()) {
+        btnRight.style.visibility = "hidden";
+        return;
+    }
+    textArea3.value = localStorage.getItem(+index + 1);
+}
 
 // - Реализуйте записную книгу, хранящую данные в локальном хранилище.
 // Данные которые надо сохранять : ФИО, номер, почта, фирма, отдел, день рождения
@@ -115,6 +147,9 @@ let allUsers = document.getElementById("allUsers");
 function editor(params) {
     allUsers.innerHTML = "";
 
+    // let item = localStorage.getItem(noteBook);
+    // const noteBook = JSON.parse(item);
+
     noteBook.forEach(({name, email, phone, company, department, birth}, index) => {
         let userDiv = document.createElement("div");
         userDiv.innerText = `${index + 1}. name: ${name}, email: ${email}, phone: ${phone}, company: ${company}, department: ${department}, birth: ${birth}`;
@@ -128,7 +163,9 @@ function editor(params) {
 
         remove.onclick = () => {
             noteBook.splice(index, 1);
-
+            
+            localStorage.setItem("noteBook", JSON.stringify(noteBook))
+            
             editor();
         }
         
@@ -136,7 +173,6 @@ function editor(params) {
             editHelper ({name, email, phone, company, department, birth}, index);
 
         }
-
 
         userDiv.style.backgroundColor = "lightgreen";
         allUsers.appendChild(userDiv);
@@ -164,7 +200,33 @@ save.onclick = () => {
 }
 
 function editHelper({name, email, phone, company, department, birth}, index) {
-    
+    document.getElementById("editForm").style.display = "block";
 
+    let editName = document.getElementById("editName");
+    let editPhone = document.getElementById("editPhone");
+    let editEmail = document.getElementById("editEmail");
+    let editCompany = document.getElementById("editCompany");
+    let editDepartment = document.getElementById("editDepartment");
+    let editBirth = document.getElementById("editBirth");
+    let btnSaveEdit = document.getElementById("saveEdit");
+
+    editName.value = name;
+    editPhone.value = phone;
+    editEmail.value = email;
+    editCompany.value = company;
+    editDepartment.value = department;
+    editBirth.value = birth;
+
+    btnSaveEdit.onclick = () => {
+        noteBook[index].name = editName.value;
+        noteBook[index].phone = editPhone.value;
+        noteBook[index].email = editEmail.value;
+        noteBook[index].company = editCompany.value;
+        noteBook[index].birth = editBirth.value;
+
+        editor();
+
+        document.getElementById("editForm").style.display = "none";
+    }
 
 }
