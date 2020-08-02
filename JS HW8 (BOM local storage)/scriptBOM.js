@@ -4,13 +4,13 @@
 // В неё вводится текст.
 // Сделайте так, чтобы после захода на эту страницу через некоторое время, введенный текст остался в textarea.
 
-let textArea = document.getElementById("textId");
+// let textArea = document.getElementById("textId");
 
-textArea.value = localStorage.getItem("textArea");
+// textArea.value = localStorage.getItem("textArea");
 
-textArea.oninput = (event) => {
-    localStorage.setItem("textArea", event.target.value);
-}
+// textArea.oninput = (event) => {
+//     localStorage.setItem("textArea", event.target.value);
+// }
 
 
 // - Дана форма с инпутами, текстареа, чекбоксами, радио кнопочками, селектами и тп.
@@ -229,4 +229,123 @@ function editHelper({name, email, phone, company, department, birth}, index) {
         document.getElementById("editForm").style.display = "none";
     }
 
+}
+
+// 2nd option
+
+const arrUsers2 = "Array Users 2";
+let tempUser2 = {};
+const content = document.getElementById("content");
+
+const myForm2 = document.forms.myForm2;
+myForm2.submit2.onclick = (event) => {
+    // event.preventDefault();
+    let person = {...tempUser2};
+    tempUser2 = {};
+    for (let i = 0; i < myForm2.children.length; i++) {
+        const myForm2Element = myForm2.children[i];
+        if (myForm2Element.name && myForm2Element.type !== "submit") {
+            person[myForm2Element.name] = myForm2Element.value;
+        }
+        
+    }
+    if (!person.id) {
+        person.id = new Date().getTime();
+    };
+    
+    // console.log("person");
+    // console.log(person);
+    saveUser(person);
+    
+}
+
+
+function saveUser(user) {
+    if (localStorage.hasOwnProperty(arrUsers2)) {
+        const arrUsers2new = JSON.parse(localStorage.getItem(arrUsers2));
+        const find = arrUsers2new.find(value => value.id === user.id);
+        if (find) {
+            const filter = arrUsers2new.filter(value => value.id !== user.id);
+            filter.push(user);
+            localStorage.setItem(arrUsers2, JSON.stringify(filter));
+
+        } else {
+            arrUsers2new.push(user);
+            localStorage.setItem(arrUsers2, JSON.stringify(arrUsers2new));
+        }
+
+    } else {
+        localStorage.setItem(arrUsers2, JSON.stringify([user]));
+    }
+}
+
+function getUser(params) {
+    if (localStorage.hasOwnProperty(arrUsers2)) {
+        const arrUsers3 = JSON.parse(localStorage.getItem(arrUsers2));
+        for (const user of arrUsers3) {
+            content.appendChild(createDivPerson(user));
+        }
+    }
+}
+
+getUser();
+
+function createDivPerson(user) {
+    const divUser = document.createElement("div");
+    let flag = true;
+    for (const key in user) {
+        if (flag) {
+            const h3 = document.createElement("h3");
+            h3.innerText = key + " " + user[key];
+            divUser.appendChild(h3);
+            flag = false;
+        } else {
+            const p = document.createElement("p");
+            p.innerText = key + " " + user[key];
+            divUser.appendChild(p);
+        }
+    }
+    divUser.style = "width: 300px; float: left";
+    const b1 = document.createElement("button");
+    const b2 = document.createElement("button");
+
+    b1.innerText = "Edit";
+    b2.innerText = "Delete";
+
+    b1.onclick = () => {
+        editUser(user.id);
+    };
+    b2.onclick = () => {
+        deleteUser(user.id);
+    }
+
+    divUser.appendChild(b1);
+    divUser.appendChild(b2);
+
+    return divUser;
+}
+
+function deleteUser(id) {
+    const del1 = JSON.parse(localStorage.getItem(arrUsers2));
+    const del2 = del1.filter(user => user.id !== id);
+    localStorage.setItem(arrUsers2, JSON.stringify(del2));
+    location.reload();
+
+}
+
+function editUser(id) {
+    const edit1 = JSON.parse(localStorage.getItem(arrUsers2));
+    const user = edit1.find(user => user.id === id);
+    for (let i = 0; i < myForm2.children.length; i++) {
+        const myForm2Element = myForm2.children[i];
+        if (myForm2Element.name && myForm2Element.type !== "submit") {
+            for (const key in user) {
+                if (myForm2Element.name === key) {
+                    myForm2Element.value = user[key]; 
+                }
+            }
+        }
+        
+    }
+    tempUser2 = user;
 }
