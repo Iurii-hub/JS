@@ -17,6 +17,111 @@
 // І їх всіх реалізувати трьома спомобами.
 // Колбек. Проміс. Асинк
 
+console.log("CALLBACK");
+
+let myDay = "";
+
+function wakeUp(isSmooth, cb) {
+    setTimeout(() => {
+        if (isSmooth) {
+            myDay = "hello";
+            cb(null, myDay);
+        } else {
+            cb("day's lost", null)
+        }
+    }, 500) 
+}
+
+function getUp(isSmooth, cb) {
+    setTimeout(() => {
+        if (isSmooth) {
+            myDay = "well done";
+            cb(null, myDay);
+        } else {
+            cb("lazy", null)
+        }
+    }, 100) 
+}
+
+function wc (isSmooth, cb) {
+    setTimeout(() => {
+        if (isSmooth) {
+            myDay = "good job";
+            cb(null, myDay);
+        } else {
+            cb("ill", null)
+        }
+    }, 200) 
+}
+
+function teeth (isSmooth, cb) {
+    setTimeout(() => {
+        if (isSmooth) {
+            myDay = "care";
+            cb(null, myDay);
+        } else {
+            cb("dentist is waiting", null)
+        }
+    }, 700) 
+}
+
+function shower (isSmooth, cb) {
+    setTimeout(() => {
+        if (isSmooth) {
+            myDay = "nice looking";
+            cb(null, myDay);
+        } else {
+            cb("dirty", null)
+        }
+    }, 300) 
+}
+
+function breakfast (isSmooth, cb) {
+    setTimeout(() => {
+        if (isSmooth) {
+            myDay = "tasty";
+            cb(null, myDay);
+        } else {
+            cb("hungry", null)
+        }
+    }, 300) 
+}
+
+function dress (isSmooth, cb) {
+    setTimeout(() => {
+        if (isSmooth) {
+            myDay = "good";
+            cb(null, myDay);
+        } else {
+            cb("cold", null)
+        }
+    }, 900) 
+}
+
+wakeUp(true, (error, myDay) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log(myDay);
+
+        getUp(myDay, (error, myDay) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log(myDay);
+            }
+        })
+    }
+
+})
+
+
+
+
+
+
+
+
 
 // Значить так. #task 
 // Необхіжно реалізувати друкарську машинку.
