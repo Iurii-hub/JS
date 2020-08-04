@@ -19,101 +19,123 @@
 
 console.log("CALLBACK");
 
-// let myDay = "";
 
-// function wakeUp(isSmooth, cb) {
-//     setTimeout(() => {
-//         if (isSmooth) {
-//             myDay = "hello";
-//             cb(null, myDay);
-//         } else {
-//             cb("day's lost", null)
-//         }
-//     }, 500) 
-// }
+let chanceCB = 0.3;
 
-// function getUp(isSmooth, cb) {
-//     setTimeout(() => {
-//         if (isSmooth) {
-//             myDay = "well done";
-//             cb(null, myDay);
-//         } else {
-//             cb("lazy", null)
-//         }
-//     }, 100) 
-// }
+function myDay(cb) {
+    console.log("**********************");
+    setTimeout(() => {
+        Math.random() > chanceCB
+            ? cb(null, "time to wake up")
+            : cb("day's lost")
+        }, 1000)
+}
 
-// function wc (isSmooth, cb) {
-//     setTimeout(() => {
-//         if (isSmooth) {
-//             myDay = "good job";
-//             cb(null, myDay);
-//         } else {
-//             cb("ill", null)
-//         }
-//     }, 200) 
-// }
+function getUp(check, cb) {
+    console.log("**********************");
+    setTimeout(() => {
+        check
+            ? cb(null, "time to get up")
+            : cb("ill")
+        }, 1000) 
+}
 
-// function teeth (isSmooth, cb) {
-//     setTimeout(() => {
-//         if (isSmooth) {
-//             myDay = "care";
-//             cb(null, myDay);
-//         } else {
-//             cb("dentist is waiting", null)
-//         }
-//     }, 700) 
-// }
+function shower(check, cb) {
+    console.log("**********************");
+    setTimeout(() => {
+        check
+            ? cb(null, "time to take a shower")
+            : cb("dirty")
+        }, 1000)
+}
 
-// function shower (isSmooth, cb) {
-//     setTimeout(() => {
-//         if (isSmooth) {
-//             myDay = "nice looking";
-//             cb(null, myDay);
-//         } else {
-//             cb("dirty", null)
-//         }
-//     }, 300) 
-// }
+function breakfast(check, cb) {
+    console.log("**********************");
+    setTimeout(() => {
+        check
+            ? cb(null, "time to eat")
+            : cb("hungry")
+        }, 1000)
+}
 
-// function breakfast (isSmooth, cb) {
-//     setTimeout(() => {
-//         if (isSmooth) {
-//             myDay = "tasty";
-//             cb(null, myDay);
-//         } else {
-//             cb("hungry", null)
-//         }
-//     }, 300) 
-// }
+function dress(check, cb) {
+    console.log("**********************");
+    setTimeout(() => {
+        check
+            ? cb(null, "time to dress up")
+            : cb("naked")
+        }, 1000)
+}
 
-// function dress (isSmooth, cb) {
-//     setTimeout(() => {
-//         if (isSmooth) {
-//             myDay = "good";
-//             cb(null, myDay);
-//         } else {
-//             cb("cold", null)
-//         }
-//     }, 900) 
-// }
+function walk(check, cb) {
+    console.log("**********************");
+    setTimeout(() => {
+        check
+            ? cb(null, "time to walk")
+            : cb("lazy")
+        }, 1000)
+}
 
-// wakeUp(true, (error, myDay) => {
-//     if (error) {
-//         console.log(error);
-//     } else {
-//         console.log(myDay);
+function sleep(check, cb) {
+    console.log("**********************");
+        setTimeout(() => {
+            check
+                ? cb(null, "go to bed")
+                : cb("insomnia")
+        }, 1000)
+}
 
-//         getUp(myDay, (error, myDay) => {
-//             if (error) {
-//                 console.log(error);
-//             } else {
-//                 console.log(myDay);
-//             }
-//         })
-//     }
-
-// })
+myDay((error, data) => {
+    if (error) {
+        console.error(error, "didn't wake up");
+    } else {
+        console.log(data);
+        getUp(true, (error, data) => {
+            if (error) {
+                console.error(error, "didn't get up");
+            } else {
+                console.log(data);
+                shower(true, (error, data) => {
+                    if (error) {
+                        console.error(error, "didn't take a shower");
+                    } else {
+                        console.log(data);
+                        breakfast(true, (error, data) => {
+                            if (error) {
+                                console.error(error, "didn't have a breakfast");
+                            } else {
+                                console.log(data);
+                                dress(true, (error, data) => {
+                                    if (error) {
+                                        console.error(error, "didn't dress up");
+                                    } else {
+                                        console.log(data);
+                                        walk(true, (error, data) => {
+                                            if (error) {
+                                                console.error(error, "didn't walk");
+                                            } else {
+                                                console.log(data);
+                                                sleep(false, (error, data) => {
+                                                    if (error) {
+                                                        console.error(error, "couldn't sleep");
+                                                    } else {
+                                                        console.log(data);
+                                                        console.log("**********************");
+                                                        console.log("the end");
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    }
+})
 
 
 console.log("PROMISE");
@@ -239,7 +261,7 @@ myDay2("wake up")
     });
 
 
-// console.log("ASYNC/AWAIT");
+console.log("ASYNC/AWAIT");
 
 
 // Значить так. #task 
