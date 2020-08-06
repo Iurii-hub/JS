@@ -120,20 +120,20 @@ function userCard(number) {
         } else {
             console.error("not enough funds in the account");
         }
-
-        
-        // let check = takeCredits(credit, "transferCredits");
-        //     check
-        //         ? card.putCredits(sum)
-        //         : "";
     }
 
+    function getKey() {
+        return key
+    }
+
+    
     return{
         getCardOptions,
         putCredits,
         takeCredits,
         setTransactionLimit,
-        transferCredits
+        transferCredits,
+        getKey,
     }
 }
 
@@ -147,18 +147,11 @@ console.log(userCard1.getCardOptions());
 console.log(userCard2.getCardOptions());
 
 
-
-
-
 // 2) Створити UserAccount:
 // Створити класс `UserAccount` (для цього завдання можна використати ES6 класс 
 // або звичайну функцію):
 
-//  
-
 // const user = new UserAccount('Bob');
-
-//  
 
 // Класс має містити:
 // Властивості акаунту користувача:
@@ -168,17 +161,12 @@ console.log(userCard2.getCardOptions());
 // - addCard. Створює нову карту (використовуйте ‘userCard’ функцію) та додайте її до 
 // cards:
 
-//  
-
 // user.addCard();
 //  
 // Користувач повинен мати <= 3 карти.
 
-//  
 
 // - getCardByKey. Приймає число в діапазоні {1; 3} і повертає об’єкт карти
-
-//  
 
 // /*
 //  * Повертає об’єкт { 
@@ -190,34 +178,43 @@ console.log(userCard2.getCardOptions());
 //  user.getCardByKey(1);
 // Код
 
-
 // Приклад переказу коштів:
-
-//  
 
 // let user = new UserAccount('Bob');
 // user.addCard()
 // user.addCard()
 
-//  
-
 // let card1 = user.getCardByKey(1);
 // let card2 = user.getCardByKey(2);
-
-//  
 
 // card1.putCredits(500);
 // card1.setTransactionLimit(800);
 // card1.transferCredits(300, card2);
 
-//  
-
 // card2.takeCredits(50);
 //  
 // console.log(card1.getCardOptions()); // див зображення 2
-
 // Зображення 2 - Об’єкт властивостей card1
 
 // console.log(card2.getCardOptions()); // див зображення 3
-
 // Зображення 3 - Об’єкт властивостей card2
+
+
+class UserAccount{
+    constructor(name) {
+        this.name = name;
+        this.cards = [];
+    }
+}
+
+UserAccount.prototype.addCard = function () {
+    if (this.cards.length < 3) {
+        this.cards.push(new userCard(this.cards.length + 1))
+    } else {
+        console.log("cards limit over");
+    }
+}
+
+UserAccount.prototype.getCardbyKey = function (number) {
+    return this.cards.find(value => value.getKey() === number)
+}
