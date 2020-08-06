@@ -114,8 +114,9 @@ function userCard(number) {
         let time = now.toLocaleTimeString();
         let credit = +(sum*1.005).toFixed(2);
         if (credit <= transactionLimit && credit <= balance) {
-            card += credit;
-            addHistory("setTransactionLimit", number, date + " " + time );
+            takeCredits(credit);
+            card.putCredits(sum);
+            addHistory("transferCredits", card, date + " " + time );
         } else {
             console.error("not enough funds in the account");
         }
@@ -138,10 +139,10 @@ function userCard(number) {
 
 const userCard1 = new userCard(1);
 const userCard2 = new userCard(2);
-// userCard1.putCredits(100);
-// userCard1.setTransactionLimit(400)
-// userCard1.takeCredits(0);
-userCard1.transferCredits(90, userCard2);
+userCard1.putCredits(0);
+userCard1.setTransactionLimit(400)
+userCard1.takeCredits(0);
+userCard1.transferCredits(70, userCard2);
 console.log(userCard1.getCardOptions());
 console.log(userCard2.getCardOptions());
 
