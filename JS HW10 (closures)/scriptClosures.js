@@ -5,6 +5,7 @@
 // Створити функцію «userCard» яка приймає число(будь-яке число) і повертає 
 // об’єкт з методами:
 // const card3 = userCard(3); // returns an object with methods
+
 // User Card методи:
 // getCardOptions. Дана функція повертає об’єкт котрий містить інформацію про 
 // карту:
@@ -46,7 +47,6 @@
 // Не забудьте перед перерахуванням перевірити залишок балансу та ліміт 
 // транзакцій відправника кредитів (card3).
 
-
 // Ви повинні відслідковувати тільки Put credits/Take credits/Transaction limit 
 // change операції і зберігайте history log. History log (Дивитись зображення 1) 
 // інформація має зберігатись в об’єктах з такими властивостями:
@@ -55,7 +55,59 @@
 // • operationTime (формат: "27/07/2018, 03:24:53". Час коли була здійснена операція)
 
 
+function userCard(number) {
+    let balance = 100;
+    let transactionLimit = 100;
+    let historyLogs = [];
+    let key = number <=3
+        ? number
+        : "key is not valid";
 
+    function getCardOptions() {
+        return {
+            key,
+            balance,
+            transactionLimit,
+            historyLogs
+        }
+    }
+
+    function putCredits(credit) {
+        let now = new Date();
+        let date = now.toLocaleDateString();
+        let time = now.toLocaleTimeString();
+        if (credit > 0) {
+            balance += credit;
+            addHistory("putCredits", credit, date + " " + time);
+        }
+    }
+
+    function addHistory(operationType, credits, operationTime) {
+        historyLogs.push({operationType, credits, operationTime})
+    }
+
+    function takeCredits(credit) {
+        let now = new Date();
+        let date = now.toLocaleDateString();
+        let time = now.toLocaleTimeString();
+        if (credit <= transactionLimit && credit <= balance) {
+            balance -= credit;
+            addHistory("takeCredits", credit, date + " " + time );
+        }
+    }
+
+    return{
+        getCardOptions,
+        putCredits,
+        takeCredits,
+        // setTransactionLimit,
+        // transferCredits
+    }
+}
+
+const userCard1 = new userCard(1);
+userCard1.putCredits(120);
+console.log(userCard1.getCardOptions());
 
 
 
