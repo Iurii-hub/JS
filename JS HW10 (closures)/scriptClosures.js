@@ -91,23 +91,59 @@ function userCard(number) {
         let date = now.toLocaleDateString();
         let time = now.toLocaleTimeString();
         if (credit <= transactionLimit && credit <= balance) {
-            balance -= credit;
+            balance = +(balance - credit).toFixed(2);
             addHistory("takeCredits", credit, date + " " + time );
+        } else {
+            console.error("error to takeCredits");
         }
+    }
+
+    function setTransactionLimit(number) {
+        let now = new Date();
+        let date = now.toLocaleDateString();
+        let time = now.toLocaleTimeString();
+        if (number > 0) {
+            transactionLimit = number;
+            addHistory("setTransactionLimit", number, date + " " + time );
+        }
+    }
+
+    function transferCredits(sum, card) {
+        let now = new Date();
+        let date = now.toLocaleDateString();
+        let time = now.toLocaleTimeString();
+        let credit = +(sum*1.005).toFixed(2);
+        if (credit <= transactionLimit && credit <= balance) {
+            card += credit;
+            addHistory("setTransactionLimit", number, date + " " + time );
+        } else {
+            console.error("not enough funds in the account");
+        }
+
+        
+        // let check = takeCredits(credit, "transferCredits");
+        //     check
+        //         ? card.putCredits(sum)
+        //         : "";
     }
 
     return{
         getCardOptions,
         putCredits,
         takeCredits,
-        // setTransactionLimit,
-        // transferCredits
+        setTransactionLimit,
+        transferCredits
     }
 }
 
 const userCard1 = new userCard(1);
-userCard1.putCredits(120);
+const userCard2 = new userCard(2);
+// userCard1.putCredits(100);
+// userCard1.setTransactionLimit(400)
+// userCard1.takeCredits(0);
+userCard1.transferCredits(90, userCard2);
 console.log(userCard1.getCardOptions());
+console.log(userCard2.getCardOptions());
 
 
 
