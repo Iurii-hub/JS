@@ -122,9 +122,9 @@ function userCard(number) {
         }
     }
 
-    function getKey() {
-        return key
-    }
+    // function getKey() {
+    //     return key
+    // }
 
     
     return{
@@ -133,7 +133,7 @@ function userCard(number) {
         takeCredits,
         setTransactionLimit,
         transferCredits,
-        getKey,
+        // getKey,
     }
 }
 
@@ -207,6 +207,7 @@ class UserAccount{
     }
 }
 
+
 UserAccount.prototype.addCard = function () {
     if (this.cards.length < 3) {
         this.cards.push(new userCard(this.cards.length + 1))
@@ -216,5 +217,41 @@ UserAccount.prototype.addCard = function () {
 }
 
 UserAccount.prototype.getCardbyKey = function (number) {
-    return this.cards.find(value => value.getKey() === number)
+    // return this.cards.find(value => value.getKey() === number)
+    return this.cards.find(value => value.getCardOptions().key === number)
 }
+
+let user1 = new UserAccount("Bob");
+user1.addCard()
+user1.addCard()
+
+const card1 = user1.getCardbyKey(1);
+const card2 = user1.getCardbyKey(2);
+
+card1.putCredits(500);
+card1.setTransactionLimit(800);
+card1.transferCredits(300, card2);
+
+card2.takeCredits(50);
+ 
+console.log(card1.getCardOptions())
+console.log(card2.getCardOptions())
+
+
+// let user1 = new UserAccount("body1");
+// let user2 = new UserAccount("body2");
+
+// user1.addCard()
+// user1.addCard()
+// user1.addCard()
+
+// user2.addCard()
+// user2.addCard()
+
+// const user1card1 = user1.getCardbyKey(1);
+// const user2card1 = user2.getCardbyKey(1);
+
+// user1card1.putCredits(1500);
+// user1card1.setTransactionLimit(1000);
+// user1card1.transferCredits(500, user2card1);
+// console.log(user2card1.getCardOptions());
